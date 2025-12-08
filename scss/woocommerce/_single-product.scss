@@ -1,0 +1,407 @@
+.single-product {
+  position: relative;
+  z-index: 1;
+
+  .woocommerce-message {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.617924em;
+    background-color: $light-gray;
+    margin-left: 0;
+    border-radius: 2px;
+    color: $text-color;
+    clear: both;
+    border-left: 1px solid $light-gray;
+    padding: 16px 20px;
+    position: relative;
+    list-style: none outside;
+
+    .button {
+      margin: 15px 0 0;
+    }
+  }
+
+  #primary {
+    @extend .container;
+    min-height: 57vh;
+    padding: 0 15px 0;
+    position: relative;
+    z-index: 1;
+  
+    @media(max-width: 1199px) {
+      padding: rem-calc(80) 15px 0;
+      text-align: left;
+    }
+  
+    .woocommerce-breadcrumb {
+      margin: 50px 0 40px;
+    }
+    
+    .single-product-content {
+      @extend .row;
+
+      .product__save, .product__free-delivery {
+        display: none;
+      }
+
+      .price {
+        position: relative;
+        width: auto;
+        display: flex;
+        align-items: center;
+        margin: rem-calc(15) 0 0;      
+        font-size: rem-calc(29);
+        color: $text-color;
+    
+        // &:before {
+        //   content: 'Price:';
+        //   display: block;
+        //   @extend .paragraph;
+        //   font-weight: 700;
+        //   margin: 0 5px 0 0;
+        //   color: $text-color;
+        // }
+      
+        del {
+          @extend .theme-content-product-price-deleted;
+        }
+      
+        ins {
+          text-decoration: none;
+        }
+      
+        .woocommerce-price-suffix {
+          display: none;
+        }
+      }
+        
+      .product__size {
+        padding: 0; 
+        font-weight: 700;
+        font-size: 18px;
+      }
+    }
+    
+    .woocommerce-product-gallery {
+      @extend .col-md-6;
+    }
+    
+    .summary {
+      @extend .col-md-6;
+
+      h2, h3, h4 {
+        @extend .h3;
+      }
+
+      ul {
+        margin: 20px 0 0;
+  
+        li {
+          margin: 5px 0 0;
+          position: relative;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+  
+          &:before {
+            display: inline-block;
+            width: 12px;
+            flex-shrink: 0;
+            height: 12px;
+            content: '';
+            background: $black;
+          }
+        }
+      }
+    }
+  
+    .woocommerce-tabs {
+      display: none;
+    }
+  
+    .woocommerce-product-gallery {
+      width: 100%;
+  
+      &__image {
+        height: 400px;
+        position: relative;
+        width: 100%;
+        max-width: 610px;
+        // background: $white;
+  
+        @media(max-width: 767px) {
+          max-width: 750px;
+        }
+  
+        @media(max-width: 500px) {
+          height: 350px;
+        }
+  
+        > a {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          z-index: 1;
+          display: flex;
+          margin: 0;
+          padding: 0;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+
+          &:before {
+            content: '';
+            display: block;
+            width: 31px;
+            height: 31px;
+            background: url('./images/woocommerce-image-zoom.png');
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+          }
+  
+          > img {
+            margin: 0;
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0px;
+          }
+        }
+
+        &--placeholder {
+          > img {
+            margin: 0;
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0px;
+          }
+        }
+      }
+    }
+  
+    /* slider gallery */
+  
+    .flex-control-nav {
+      width: 100%;
+      margin: 10px 0 0;
+      overflow: hidden;
+  
+      li {
+        width: 100%;
+        height: 95px;
+        position: relative;
+        background-color: $white;
+  
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          max-width: 100%;
+          z-index: 1;
+          position: relative;
+          border-radius: 0px;
+          cursor: pointer;
+        }
+      }
+  
+      /* slick styles overwriting */
+      .slick-slide {
+        margin: 0 rem-calc(5);
+      }
+  
+      .slick-list {
+        margin: 0 rem-calc(-5);
+      }
+  
+      .slick-track {
+        margin: 0;
+      }
+    }
+    
+    .product_title {
+      @extend .h3;
+      text-align: left;
+  
+      @media(max-width: 991px) {
+        margin: 30px 0 0;
+      }
+    }
+
+  
+    .woocommerce-product-details__short-description {
+      @extend .paragraph;
+      text-align: left;
+    }
+
+    p {
+      text-align: left;
+    }
+  
+    .woocommerce-variation-availability {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+  
+      &:before {
+        content: 'Availability: ';
+        display: block;
+        @extend .paragraph;
+        font-weight: 700;
+        margin: 0 5px 0 0;
+      }
+    }
+  
+    form {
+      margin: rem-calc(15) 0 0;
+      display: flex;
+      align-items: center;
+
+      /* for every type of product */
+      .quantity {
+        margin: 0;
+        display: flex;
+
+        /* woo better usabillity plugin */
+        a.wbu-qty-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid $border-color;
+          color: $theme-color;
+
+          &:first-of-type {
+            border-right: none;
+          }
+
+          &:last-of-type {
+            border-left: none;
+          }
+        }
+      }
+
+      .button {
+        margin: 0 0 0 10px;
+      }
+  
+      /* for variations */
+      &.variations_form.cart {
+        margin: rem-calc(20) 0 0;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      
+        @media(max-width: 991px) {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+      }
+  
+      > div {
+        @media(max-width: 767px) {
+          margin: rem-calc(20) 0 0;
+        }
+        
+        label {
+          margin: 0 rem-calc(15) 0 0;
+        }
+        
+        label.screen-reader-text {
+          display: none;
+        }
+        
+        .woocommerce-variation-add-to-cart {
+          display: flex;
+        }
+  
+        input {
+          /* importants are necessary to make sure that any plugin that styles inputs globally doesn't overwrite design styles */
+          max-width: rem-calc(60);
+          font-size: rem-calc(16);
+          padding: rem-calc(5) rem-calc(5) rem-calc(5) rem-calc(10) !important;
+          border: 1px solid $border-color !important;
+          height: rem-calc(48);
+        }
+      }
+  
+      .variations select, .variations option {
+        @extend .inputs;
+      }
+    }
+  
+    .product_meta {
+      display: none;
+    }
+  
+    .onsale {
+      margin: 0;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 80px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $theme-color;
+      text-transform: uppercase;
+      color: $white;
+      font-weight: 700;
+      font-family: $font-primary;
+      font-size: 12px;
+    }
+  
+    /* changes in variable product */
+  
+    .product-type-variable {
+      p.price {
+        display: none;
+      }
+  
+      span.price {
+        margin: 0;
+      }
+    }
+  
+    .woocommerce-variation-add-to-cart {
+      margin: 15px 0 0;
+    }
+  }
+
+  /* related products */
+  .products.related {
+    margin: 60px 0 0;
+    padding: 40px 0;
+    border-top: 1px solid $light-gray;
+    position: relative;
+    z-index: 1;
+
+    .products.columns-4 {
+      margin: 10px -15px 0;
+
+      @media(max-width: 767px) {
+        margin: 40px -15px 0;
+      }
+    }
+  }
+
+  /* hide irrelevant stuff related to blog */
+  .sidebar__item {
+    display: none;
+  }
+}

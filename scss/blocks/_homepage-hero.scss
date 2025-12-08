@@ -1,0 +1,357 @@
+.hero-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  .slick-slide {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  &__image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    > span {
+      content: '';
+      z-index: 1;
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transform: translateX(-50vw);
+      opacity: 0;
+      position: absolute;
+      overflow: hidden;
+      transition: all 1s ease-in-out;
+      background: rgba($white, 0.04);
+      transition-delay: 300ms;
+      backdrop-filter: blur(6px);
+      display: none;
+    }
+
+    // img {
+    //   @extend .object-fit-cover;
+    // }
+  }
+
+  &__wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: none;
+  }
+
+  &__content {
+    position: relative;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    opacity: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: all 800ms ease-in-out;
+    transform: scale(0,1);
+    opacity: 0;
+    transform-origin: left;
+    padding: 60px;
+    max-width: 25vw;
+
+    @media(max-width: 1599px) {
+      max-width: 37vw;
+      padding: 30px;
+    }
+
+    @media(max-width: 1099px) {
+      max-width: 50%;
+      padding: 30px;
+    }
+
+    @media(max-width: 650px) {
+      max-width: 600px;
+      height: 100vh;
+    }
+
+    /* Styles for Safari on mobile devices only */
+    @media screen and (max-width: 767px) and (-webkit-touch-callout: none) and (-webkit-user-select: none) and (-webkit-overflow-scrolling: touch) and (overflow-y: scroll) {
+      height: calc(100vh - 40px);
+    }
+
+    p {
+      color: $white;
+      text-align: left;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    max-width: 100px;
+    margin: -30px 0 15px;
+
+    @media(max-width: 1600px) {
+      max-width: 60px;
+    }
+
+    img, svg {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__title {
+    @extend .h1;
+    color: $white;
+    
+    @media(max-width: 1600px) {
+      font-size: 25px;
+    }
+    
+    @media(max-width: 1920px) {
+      font-size: 30px;
+    }
+  }
+
+  p {
+    @media(max-width: 1600px) {
+      font-size: 15px;
+    }
+  }
+
+  &__button {
+    margin: 35px 0 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    &::after {
+      content: '';
+      background: url('./images/button-arrow.png') center/contain no-repeat;
+      width: 13px;
+      height: 12px;
+      display: block;
+      transition: all 100ms ease-in-out;
+    }
+
+    &:hover {
+      &::after {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+  
+  .slick-prev, .slick-next {
+    position: absolute;
+    bottom: 13vh;
+    width: 24px;
+    height: 44px;
+    z-index: 5;
+    transform: translateY(13px);
+    transition: all 300ms ease-in-out;
+
+    &::after, &::before {
+      display: block;
+      transition: all 500ms ease-in-out;
+      width: 15vw;
+      @extend .paragraph;
+      margin: -2px 0 0;
+      color: $white;
+      position: absolute;
+      bottom: 10px;
+      font-size: 15px;
+
+      @media(max-width: 1899px) {
+        width: 20vw;
+      }
+
+      @media(max-width: 1599px) {
+        width: 25vw;
+      }
+
+      @media(max-width: 1349px) {
+        width: 30vw;
+      }
+
+
+              
+      @media(max-width: 1199px) {
+        display: none;
+      }
+    }
+  }
+
+  .slick-prev {
+    left: 60px;
+    background: url('./images/left-arrow.png') center/contain no-repeat;
+
+    @media(max-width: 1099px) {
+      left: 30px;
+    }
+
+    &::after {
+      left: 30px;
+      text-align: left;
+    }
+
+    &.slide-1 {
+      &::after {
+        content: 'We can make a difference together';
+      }
+    }
+
+    &.slide-2 {
+      &::after {
+        content: 'Sustaining Future Environments';
+      }
+    }
+
+    &.slide-3 {
+      &::after {
+        content: 'Delivering successful projects since 1981';
+      }
+    }
+  }
+
+  .slick-next {
+    right: 60px;
+    background: url('./images/right-arrow.png') center/contain no-repeat;
+
+    @media(max-width: 1099px) {
+      right: 30px;
+    }
+    
+    &::before {
+      right: 30px;
+      text-align: right;
+    }
+
+    
+    &.slide-1 {
+      &::before {
+        content: 'Delivering successful projects since 1981';
+      }
+    }
+
+    &.slide-2 {
+      &::before {
+        content: 'We can make a difference together';
+      }
+    }
+
+    &.slide-3 {
+      &::before {
+        content: 'Sustaining Future Environments';
+      }
+    }
+  }
+  
+  .slick-dots {
+    position: absolute;
+    bottom: 13vh;
+    transform: translateX(50%);
+    right: 50%;
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+
+    &::before, &::after {
+      width: 25vw;
+      display: block;
+      height: 1px;
+      background: #888650;
+      bottom: 13vh;
+      content: '';
+
+      @media(max-width: 1899px) {
+        width: 20vw;
+      }
+
+      @media(max-width: 1599px) {
+        width: 15vw;
+      }
+      
+      @media(max-width: 1349px) {
+        width: 10vw;
+      }
+        
+      @media(max-width: 1199px) {
+        display: none;
+      }
+    }
+
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      transition: all 300ms ease-in-out;
+      cursor: pointer;
+      position: relative;
+      font-size: 0;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 36px;
+        height: 17px;
+        position: absolute;
+        bottom: -10px;
+        transition: all 300ms ease-in-out;
+        background: url('./images/li-after.png') center/contain no-repeat;
+        opacity: 0;
+      }
+
+      button {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $white;
+        font-size: 0;
+      }
+      
+      &.slick-active {
+        &::after {
+          opacity: 1;
+        }
+
+        button {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+
+  /* if slide is active */
+
+  .slick-active {
+    .hero-slider__image {
+      span {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .hero-slider__content {
+      opacity: 1;
+      transform: scale(1,1);
+    }
+  }
+}
+

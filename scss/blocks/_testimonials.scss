@@ -1,0 +1,89 @@
+.testimonials {
+  width: 100%;
+  position: relative;
+  max-width: 100%;
+  z-index: 1;
+
+  &--background {
+    padding: 0 0 65px;
+  }
+
+  &__background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @media(max-width: 1099px) {
+      bottom: 0;
+    }
+
+    @media(max-width: 575px) {
+      bottom: 0;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  &__content {
+    width: 100%;
+
+    p {
+      font-weight: 600;
+
+      &:first-of-type {
+        margin: 40px 0 0;
+      }
+    }
+  }
+
+  &__author {
+    @extend .paragraph;
+    font-weight: 600;
+  }
+
+  &__slider {
+    /* slick styles overwriting */
+    padding: 0 75px;
+    position: relative;
+
+    @media(max-width: 991px) {
+      margin: 40px 0 0;
+      padding: 0 55px;
+    }
+
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 51px;
+      height: 29px;
+      background: url('./images/quote.png') center/contain no-repeat;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+
+    .slick-slide {
+      margin: 0 rem-calc(20);
+    }
+
+    .slick-list {
+      margin: 0 rem-calc(-20);
+    }
+
+    .slick-arrow {
+      display: none;
+    }
+  }
+}

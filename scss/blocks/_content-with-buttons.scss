@@ -1,0 +1,76 @@
+.content-with-buttons {
+  width: 100%;
+
+  &--background {
+    background: $very-light-gray;
+  }
+
+  &__text {
+    max-width: 530px;
+    width: 100%;
+
+    @media(max-width: 767px) {
+      max-width: 100%;
+    }
+  }
+
+  &__buttons-wrapper {
+    width: 100%;
+    padding: 0 80px;
+    margin: 76px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media(max-width: 991px) {
+      padding: 0 40px;
+    }
+
+    @media(max-width: 767px) {
+      padding: 0;
+      max-width: 500px;
+      margin: 40px auto 0;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    color: $input-color;
+    border: 1px solid $border-color;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+
+    &:hover {
+      color: $white;
+      border: 1px solid $theme-color;
+      background: $theme-color;
+
+      &::after {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    &::after {
+      width: 14px;
+      height: 13px;
+      background: url('./images/button-decorator.png') center/contain no-repeat;
+      display: block;
+      content: '';
+      margin: 0;
+      transition: all 300ms ease;
+    }
+
+    &:last-child {
+      color: $white;
+      border: 1px solid $theme-color;
+      background: $theme-color;
+
+      &::after {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}

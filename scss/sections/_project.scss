@@ -1,0 +1,158 @@
+.cpt-project {
+  width: 100%;
+  position: static;
+
+  &__row {
+    align-items: stretch;
+    margin-bottom: 100px;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      flex-grow: 1;
+    }
+  }
+
+  &__sidebar {
+    height: 100%;
+    position: relative;
+
+    @media(max-width: 1199px) {
+      margin: 30px 0 0;
+    }
+
+    ul {
+      li {
+        padding: 0 0 0 20px;
+        position: relative;
+  
+        &::before {
+          width: 5px;
+          height: 5px;
+          display: block;
+          content: '';
+          background: $theme-color2;
+          border-radius: 50%;
+          top: 10px;
+          left: 2px;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  &__back-button {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    color: $input-color;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    gap: 10px;
+
+    @media(max-width: 1199px) {
+      position: static;
+      margin: 0 0 30px;
+    }
+
+    &:hover {
+      color: $input-color;
+    }
+
+    &::after {
+      width: 14px;
+      height: 13px;
+      background: url('./images/button-decorator.png') center/contain no-repeat;
+      display: block;
+      content: '';
+      margin: 4px 0 0;
+    }
+  }
+
+  &__gallery {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 30px 0 0;
+
+    @media(max-width: 1500px) {
+      gap: 15px;
+    }
+  }
+
+  &__image {
+    &--main {
+      height: 34vw;
+      width: 100%;
+      max-height: 650px;
+
+      @media(max-width: 1199px) {
+        height: 600px;
+        margin: 0 0 30px;
+      }
+
+      @media(max-width: 535px) {
+        height: 450px;
+      }
+    }
+
+    &--small {
+      width: calc(50% - 15px);
+      height: 150px;
+      cursor: pointer;
+
+      @media(max-width: 1500px) {
+        height: 110px;
+      }
+    }
+  }
+
+  &__content {
+
+    h1, h2, h3, h4 {
+      margin: 20px 0 0;
+    }
+
+    ul {
+      margin: 15px 0 0;
+
+      li {
+        font-size: 1.0625rem;
+        line-height: 1.5;
+        font-weight: 500;
+        margin: 10px 0 0;
+        list-style: none;
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    width: rem-calc(53);
+    height: rem-calc(109);
+    bottom: 50%;
+    transform: translateY(50%);
+    z-index: 4;
+
+    @media(max-width: 1199px) {
+      bottom: auto;
+      transform: none;
+      top: 40vh;
+    }
+
+    &--prev {
+      background: url('./images/fingleton-left-arrow.png') center/contain no-repeat;
+      left: rem-calc(-2);
+    }
+
+    &--next {
+      background: url('./images/fingleton-right-arrow.png') center/contain no-repeat;
+      right: rem-calc(-2);
+    }
+  }
+}

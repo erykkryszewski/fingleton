@@ -1,0 +1,45 @@
+{
+    "key": "group_637e344309d4d",
+    "title": "Block: Contact boxes",
+    "fields": [
+        {
+            "key": "field_637e3443172c9",
+            "label": "Contact boxes",
+            "name": "contact_boxes",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Boxes use global variables",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/contact-boxes"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1669215367
+}

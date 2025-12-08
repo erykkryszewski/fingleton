@@ -1,0 +1,10 @@
+.image-in-grid {
+  width: 100%;
+  height: rem-calc(500);
+  margin: rem-calc(25) 0 0;
+
+  @media(max-width: 500px) {
+    /* important is necessary to overwrite inline height, which can be set by user in ACF */
+    height: rem-calc(400) !important;
+  }
+}

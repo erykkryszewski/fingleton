@@ -1,0 +1,45 @@
+@import "scss/style-editor-variables";
+@import "scss/variables";
+
+.editor-styles-wrapper {
+
+	@import "scss/global/functions";
+	@import "scss/components/button";
+	@import "scss/global/mixins";
+	@import "scss/global/global";
+
+	.acf-block-preview {
+		// @import "scss/blocks/hero";
+	}
+
+	.editor-post-title textarea {
+		font-family: $font-primary !important;
+	}
+
+	.wp-block {
+
+		&:not([data-align="full"]) {
+			max-width: $content-width + rem-calc(110);
+		}
+
+		&[data-align="wide"] {
+			max-width: $alignwide-width + rem-calc(110);
+		}
+	}
+
+	[data-align="full"] [data-align="full"] {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.wp-block-freeform.block-library-rich-text__tinymce {
+		font-family: font(primary);
+
+		p {
+			line-height: inherit;
+		}
+	}
+
+}
+
+@import "scss/admin";

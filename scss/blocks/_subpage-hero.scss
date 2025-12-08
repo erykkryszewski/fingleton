@@ -1,0 +1,37 @@
+.subpage-hero {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  &--projects {
+    margin: 70px 0 20px;
+  }
+
+  &__container {
+    width: 100%;
+  }
+
+  &__row {
+    align-items: flex-end;
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 760px;
+
+    p {
+      color: $text-color;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    @extend .h1;
+    color: $text-color;
+  }
+}
+

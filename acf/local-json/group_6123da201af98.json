@@ -1,0 +1,64 @@
+{
+    "key": "group_6123da201af98",
+    "title": "Block: Iframe",
+    "fields": [
+        {
+            "key": "field_6123da26ba6ab",
+            "label": "Iframe src",
+            "name": "iframe_src",
+            "type": "text",
+            "instructions": "Paste just SRC of an iframe or embed, don't paste links to video",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6123da35ba6ac",
+            "label": "Iframe height",
+            "name": "iframe_height",
+            "type": "number",
+            "instructions": "Write just number, pixels are added automatically",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 450,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 300,
+            "max": 900,
+            "step": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/iframe"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1629739765
+}

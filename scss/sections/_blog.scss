@@ -1,0 +1,225 @@
+.blog-archive {
+  width: 100%;
+
+  .archive-title {
+  	padding: rem-calc(36) 0 0 0;
+  	font-size: rem-calc(30);
+
+  	@media(max-width: 1199px) {
+  		padding: rem-calc(24) 0 0 0;
+  	}
+
+  	@media(max-width: 768px) {
+  		padding: rem-calc(16) 0 0 0;
+  		font-size: rem-calc(21);
+  	}
+  }
+
+  &__section-title {
+    text-align: center;
+    font-size: rem-calc(19);
+    letter-spacing: 1px;
+
+    @media(max-width: 1210px) {
+      font-size: rem-calc(15);
+    }
+
+    span {
+      font-size: rem-calc(26);
+      display: block;
+      letter-spacing: 2px;
+      margin: rem-calc(6) 0 0;
+
+      @media(max-width: 1210px) {
+        font-size: rem-calc(19);
+      }
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-right: rem-calc(-15);
+    margin-left: rem-calc(-15);
+
+    @media(max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media(max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    margin: rem-calc(50) 0 0;
+    padding: 0 rem-calc(15) rem-calc(50);
+
+
+    @media(max-width: 991px) {
+      padding: 0 rem-calc(15) rem-calc(0);
+    }
+
+    @media(max-width: 767px) {
+      text-align: center;
+      margin: rem-calc(20) 0 0;
+
+      &:first-child {
+        margin: rem-calc(16) 0 0;
+      }
+    }
+
+    /* w */
+    &:nth-child(2), &:nth-child(6), &:nth-child(7), &:nth-child(11) {
+      .archive__image {
+        @media(min-width: 992px) {
+          height: rem-calc(260);
+        }
+      }
+    }
+
+    /* w */
+    &:nth-child(3), &:nth-child(4), &:nth-child(9), &:nth-child(10) {
+
+      .archive__image {
+        @media(min-width: 992px) {
+          height: rem-calc(450);
+        }
+      }
+    }
+
+    /* w */
+    &:nth-child(6), &:nth-child(7), &:nth-child(12) {
+      @media(min-width: 992px) {
+        margin: rem-calc(-20) 0 0;
+      }
+    }
+
+    /* w */
+    &:nth-child(4) {
+      @media(min-width: 992px) {
+        margin: rem-calc(-120) 0 0;
+      }
+    }
+
+    /* w */
+    &:nth-child(5), &:nth-child(8), &:nth-child(11) {
+      @media(min-width: 992px) {
+        margin: rem-calc(-210) 0 0;
+      }
+    }
+
+    /* w */
+    &:nth-child(9), &:nth-child(10) {
+      @media(min-width: 992px) {
+        margin: rem-calc(-110) 0 0;
+      }
+    }
+
+    > div {
+      
+      &:last-child {
+        background: $very-light-gray;
+        padding: rem-calc(10) rem-calc(20) rem-calc(25);
+      }
+    }
+  }
+
+  &__image {
+    height: rem-calc(350);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      img {
+        filter: brightness(0.8) contrast(1.05);
+        transition: all 300ms ease-in-out;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    }
+
+    img {
+      transition: all 400ms ease-in-out;
+      transform-origin: center;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__title {
+    margin: rem-calc(20) 0 0;
+    font-weight: 700;
+    text-transform: initial;
+    font-size: rem-calc(18);
+  }
+
+  p {
+    margin: rem-calc(24) 0;
+
+    @media(max-width: 768px) {
+    	margin: rem-calc(16) 0;
+    }
+  }
+
+  &__read-more {
+    text-transform: uppercase;
+    text-align: right;
+    width: 100%;
+    position: relative;
+    padding: rem-calc(3) rem-calc(30) rem-calc(0) rem-calc(0);
+    margin: rem-calc(20) 0 0;
+    font-weight: 500;
+    font-size: rem-calc(11);
+
+    &:after {
+      background: url('./images/ring-box-icon.png');
+      width: rem-calc(8);
+      height: rem-calc(14);
+      top: rem-calc(1);
+      right: rem-calc(7);
+      position: absolute;
+      display: block;
+      content: '';
+    }
+  }
+
+  &__buttton-wrapper {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    top: rem-calc(-92);
+
+    @media(max-width: 991px) {
+      top: 0;
+      margin: rem-calc(35) 0 0;
+    }
+  }
+}
+
+.home {
+	.blog-archive {
+		.archive__image {
+			height: rem-calc(350) !important;
+		}
+
+		.archive__buttton-wrapper {
+			top: rem-calc(-24);
+		}
+	}
+}

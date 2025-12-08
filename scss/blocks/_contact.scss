@@ -1,0 +1,80 @@
+.contact {
+  width: 100%;
+  position: relative;
+
+  &__row {
+    // justify-content: center;
+
+    > div {
+      &:nth-child(2), &:nth-child(5) {
+        > div {
+          @media(min-width: 992px) {
+            padding: 0 0 0 75px;
+          }
+        }
+      }
+
+      &:nth-child(3), &:nth-child(6) {
+        > div {
+          @media(min-width: 992px) {
+            padding: 0 0 0 140px;
+          }
+        }
+      }
+    }
+  }
+
+  &__intro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+
+    > p {
+      max-width: 500px;
+    }
+  }
+
+  &__link {
+    background: url('./images/contact-intro-after.png') center/contain no-repeat;
+    width: 85px;
+    height: 45px;
+    display: block;
+    flex-shrink: 0;
+    animation: contactArrow 3500ms ease-in-out infinite;
+
+    @media(max-width: 600px) {
+      width: 60px;
+      height: 30px;
+    }
+
+    @media(max-width: 440px) {
+      display: none;
+    }
+  }
+}
+
+
+
+@keyframes contactArrow {
+  0% {
+    transform: translateY(0);
+  }
+
+  35% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+  
+  65% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

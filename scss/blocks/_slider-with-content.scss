@@ -1,0 +1,42 @@
+.slider-with-content {
+  width: 100%;
+
+  &__details {
+    width: 100%;
+  }
+
+  &__title {
+    margin: 15px 0 0;
+    width: 100%;
+  }
+
+  &__text {
+    margin: 25px 0 0;
+    width: 100%;
+    padding: 30px 0 0;
+    border-top: 1px solid $gray;
+    
+    @media(min-width: 1200px) {
+      max-width: 350px;
+    }
+
+    ul > li {
+      display: flex;
+      gap: 10px;
+    
+      &::before {
+        content: '•';
+        color: $theme-color2;
+        font-size: 22px;
+        margin: 1px 0 0;
+        line-height: 1;
+      }
+    }
+  }
+
+  &__gallery {
+    @media(max-width: 991px) {
+      margin: 30px 0 0;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.cta-with-background {
+  width: 100%;
+  position: relative;
+  text-align: center;
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  &__wrapper {
+    min-height: 350px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 37px;
+    color: $white;
+    max-width: 545px
+  }
+
+  p {
+    @extend .h3;
+    font-weight: 500;
+    color: $white;
+  }
+
+  &__button {
+    margin: 40px 0 0;
+  }
+}

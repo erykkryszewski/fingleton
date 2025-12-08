@@ -1,0 +1,29 @@
+.faq {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__item {
+    background: $white;
+    border-radius: 10px;
+    padding: 45px;
+    margin: 30px 0 0;
+    box-shadow: 1px 3px 23px -10px rgba(192, 192, 198, 1);
+
+    &:first-child {
+      margin: 0;
+    }
+
+    p {
+      &:first-of-type {
+        @media(min-width: 992px) {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

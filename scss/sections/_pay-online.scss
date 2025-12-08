@@ -1,0 +1,226 @@
+.block.block-pay-online {
+  margin: rem-calc(75) 0;
+
+  @media(max-width: 991px) {
+    margin: rem-calc(32) 0;
+  }
+
+  @media(max-width: 650px) {
+    text-align: center;
+  }
+
+  .pay-online {
+    // max-width: rem-calc(960);
+    padding: rem-calc(42);
+    border: solid rem-calc(1) #e9ebf0;
+
+    .fancy-title, .fancy-subtitle {
+      padding: 0 rem-calc(16);
+    }
+
+    @media(max-width: 991px) {
+      padding: rem-calc(20) 0;
+      border: none;
+    }
+
+    .gform_fields {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 -1rem;
+
+      .gfield {
+        display: block;
+        width: 100%;
+        margin: 0;
+        /* important in padding is necessary if you overwrote gravity global styles to make sure your gravity errors won't break your site */
+        padding: 0 rem-calc(16) !important;
+
+        &.gsection, &.gfield_creditcard_warning {
+          border: none;
+          background: none;
+        }
+
+        .gsection_title {
+          font-size: rem-calc(21);
+          margin: rem-calc(20) 0 rem-calc(4) 0;
+
+          @media(max-width: 650px) {
+            text-align: center;
+          }
+        }
+  
+        &.ammount-field {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+  
+          .ginput_container {
+            width: 100%;
+          }
+  
+          .gfield_description {
+  
+            .amount-currency {
+              position: absolute;
+              top: rem-calc(12);
+              right: rem-calc(16);
+              width: rem-calc(38);
+              height: rem-calc(38);
+              line-height: rem-calc(39);
+              background-color: white;
+              border: 1px solid $border-color;
+              color: $text-color;
+              text-align: center;
+              font-weight: 400;
+              margin: 0;
+            }
+  
+            &.validation_message {
+              width: 100%;
+            }
+          }
+  
+          .gfield_description {
+            width: 100%;
+          }
+        }
+  
+        &.eircode-field {
+          position: relative;
+  
+          input.valid,
+          input.valid:focus {
+            border-color: green;
+          }
+  
+          input.not-valid,
+          input.not-valid:focus {
+            border-color: red;
+          }
+  
+          .validation_message {
+            display: none;
+          }
+  
+          .gfield_description {
+            width: auto;
+            position: absolute;
+            right: rem-calc(16);
+            top: rem-calc(12);
+            padding: 0 !important;
+  
+            .validation_message {
+              display: none;
+            }
+  
+            #find-eircode {
+              display: inline-block;
+              background: $theme-color url('./images/search-icon.png') no-repeat;
+              background-position: rem-calc(15) 50%;
+              background-size: rem-calc(15);
+              color: #fff;
+              line-height: rem-calc(38);
+              height: rem-calc(38);
+              text-align: center;
+              padding: 0 rem-calc(16) 0 rem-calc(42);
+  
+              &:hover {
+                background-color:$theme-color;
+              }
+            }
+          }
+        }
+  
+        &.form-total {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          margin-top: auto;
+          margin: rem-calc(20) 0 0 0;
+  
+          label {
+            margin: 0;
+            font-size: rem-calc(21);
+            font-weight: 700;
+          }
+  
+          .ginput_container {
+            margin-left: rem-calc(6);
+            font-size: rem-calc(21);
+            font-weight: 700;
+          }
+        }
+
+        &.half {
+          width: 50%;
+
+          @media(max-width: 650px) {
+            width: 100%;
+          }
+        }
+
+        input, select {
+          display: block;
+          width: 100%;
+        }
+
+        .ginput_container_consent {
+          position: relative;
+          margin: rem-calc(25) 0 0 !important;
+
+          input {
+            &:first-child {
+              position: absolute;
+              left: 0;
+              top: rem-calc(3);
+              width: auto;
+            }
+          }
+
+          label {
+            display: block !important;
+
+            &.gfield_consent_label {
+              padding: 0 0 0 rem-calc(20);
+              font-size: rem-calc(13);
+              color: $text-color;
+            }
+          }
+        }
+
+        .ginput_container_total {
+          margin: rem-calc(15) 0 0 !important;
+        }
+
+        select {
+          margin-top: rem-calc(12);
+        }
+
+        img.cc-image {
+          width: rem-calc(291);
+          height: rem-calc(61);
+          display: block;
+          margin: rem-calc(10) 0 0;
+
+          @media(max-width: 767px) {
+            margin: rem-calc(10) auto 0;
+          }
+        }
+      }
+    }
+    
+    .gform_footer.top_label {
+      padding: 0 rem-calc(16) !important;
+      margin: rem-calc(20) 0 0 !important;
+    }
+
+    .gform_wrapper span.ginput_total {
+      color: $theme-color;
+    }
+  }
+}

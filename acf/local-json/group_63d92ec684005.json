@@ -1,0 +1,65 @@
+{
+    "key": "group_63d92ec684005",
+    "title": "Block: Theme embed",
+    "fields": [
+        {
+            "key": "field_63d92ec725e9a",
+            "label": "First embed code",
+            "name": "embed_code",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_63d93035a1ce6",
+            "label": "Second embed code",
+            "name": "second_embed_code",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "The best way is to present in this block 2 instagram posts at one time, so copying 2 embeds from 2 separate posts. If we add only one embed, there will be blank space on left and right and the embed will not be in grid. Never mind - if you still want to add only one embed, just add it to the field above (first embed field)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/theme-embed"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1675178135
+}

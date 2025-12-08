@@ -1,0 +1,17 @@
+.section-title {
+  width: 100%;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  z-index: 2;
+
+  &--gray {
+    background: $very-light-gray;
+  }
+
+  &__item {
+    position: relative;
+    padding: 25px 0 0;
+    text-align: center;
+  }
+}

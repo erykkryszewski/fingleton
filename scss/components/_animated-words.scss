@@ -1,0 +1,44 @@
+.animated-words {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+
+  &__image {
+    width: 100%;
+
+    img {
+      display: block;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+
+    img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    &--one {
+      justify-content: flex-start;
+    }
+
+    &--two {
+      justify-content: flex-end;
+      margin: 20px 0 0;
+    }
+
+    &--archive-one {
+      max-width: 274px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.shop-hero {
+  width: 100%;
+  padding: 0 0 60px;
+  max-width: 920px;
+
+  @media(max-width: 767px) {
+    padding: 50px 0 65px;
+  }
+
+  h1 {
+    @extend .h2;
+    margin: 0;
+  }
+}

@@ -1,0 +1,23 @@
+/* importants are necessary to make sure that every plugin styles is not going to use his input styles */
+.inputs {
+  color: $input-color !important;
+  font-size: rem-calc(13) !important;
+  font-family: $font-primary !important;
+  font-weight: 400 !important;
+  border: 1px solid $border-color !important;
+  padding: rem-calc(10) !important;
+  display: block;
+  border-radius: 10px !important;
+  background: transparent !important;
+
+  &::placeholder {
+    color: $input-color !important;
+    font-size: rem-calc(13) !important;
+    font-family: $font-primary !important;
+    font-weight: 400 !important;
+  }
+}
+
+input[type="text"], input[type="number"], input[type="email"], input[type="password"], input[type="tel"], select, textarea {
+  @extend .inputs;
+}

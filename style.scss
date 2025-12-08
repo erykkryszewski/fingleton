@@ -1,0 +1,116 @@
+/*
+Theme Name: Fingleton
+Theme URI: https://vimar.ie/
+Author: VIMAR.IE
+Author URI: https://vimar.ie/
+Version: 1.0
+Requires at least: 5.3
+Tested up to: 5.5
+Requires PHP: 7.3
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: fingleton
+*/
+
+
+@import "scss/integrations/bootstrap";
+@import "slick-carousel/slick/slick.scss";
+@import "scss/integrations/fancybox";
+@import "scss/integrations/aos";
+
+@import "scss/variables";
+@import "scss/style-editor-variables";
+
+@import "scss/global/functions";
+@import "scss/global/typography";
+@import "scss/global/global";
+
+@import "scss/components/preloader";
+@import "scss/components/social-media";
+@import "scss/components/button";
+@import "scss/components/inputs";
+@import "scss/components/hamburger";
+@import "scss/components/newsletter";
+@import "scss/components/cookies";
+@import "scss/components/popup-form";
+@import "scss/components/form";
+@import "scss/components/location-info";
+// @import "scss/components/blog-sidebar";
+// @import "scss/components/facebook-post";
+@import "scss/components/pagination";
+@import "scss/components/bottom-bar";
+@import "scss/components/spacer";
+@import "scss/components/slick-dots";
+@import "scss/components/animated-words";
+@import "scss/components/projects-filters";
+
+@import "scss/blocks/homepage-hero";
+@import "scss/blocks/subpage-hero";
+@import "scss/blocks/slider-with-content";
+@import "scss/blocks/map-snazzy";
+@import "scss/blocks/contact";
+@import "scss/blocks/content-with-buttons";
+@import "scss/blocks/two-columns-text";
+@import "scss/blocks/two-images";
+@import "scss/blocks/timeline";
+@import "scss/blocks/full-width-image";
+@import "scss/blocks/text-with-words";
+@import "scss/blocks/timeline";
+@import "scss/blocks/gallery";
+@import "scss/blocks/icons";
+// @import "scss/blocks/iframe";
+// @import "scss/blocks/image-in-grid";
+// @import "scss/blocks/text-with-image";
+// @import "scss/blocks/logos";
+// @import "scss/blocks/blank-text";
+// @import "scss/blocks/section-title";
+// @import "scss/blocks/centered-text";
+// @import "scss/blocks/appointments-form";
+// @import "scss/blocks/vouchers-form";
+// @import "scss/blocks/blank-button";
+// @import "scss/blocks/faq";
+// @import "scss/blocks/numbers";
+// @import "scss/blocks/team";
+// @import "scss/blocks/testimonials";
+// @import "scss/blocks/three-columns-content";
+// @import "scss/blocks/cta";
+// @import "scss/blocks/checkbox-info";
+// @import "scss/blocks/big-image-wyswig-content";
+// @import "scss/blocks/cta-with-background";
+// @import "scss/blocks/three-images";
+// @import "scss/blocks/map";
+// @import "scss/blocks/border-divider";
+// @import "scss/blocks/contact-boxes";
+// @import "scss/blocks/theme-embed";
+
+@import "scss/sections/header";
+@import "scss/sections/nav";
+@import "scss/sections/footer";
+@import "scss/sections/projects";
+@import "scss/sections/project";
+// @import "scss/sections/blog";
+// @import "scss/sections/single";
+// @import "scss/sections/pay-online";
+// // @import "scss/sections/second-blog";
+// @import "scss/sections/third-blog";
+
+// @import "scss/woocommerce/global-woocommerce";
+// @import "scss/woocommerce/archive-product";
+// @import "scss/woocommerce/cart";
+// @import "scss/woocommerce/checkout";
+// @import "scss/woocommerce/content-product";
+// @import "scss/woocommerce/order-received";
+// @import "scss/woocommerce/product-filters";
+// @import "scss/woocommerce/single-product";
+// @import "scss/woocommerce/single-product-tabs";
+// @import "scss/woocommerce/variations";
+// @import "scss/woocommerce/my-account";
+// @import "scss/woocommerce/breadcrumbs";
+// @import "scss/woocommerce/sidebar";
+// @import "scss/woocommerce/empty-cart";
+// @import "scss/woocommerce/woo-pagination";
+// @import "scss/woocommerce/empty-cart";
+// @import "scss/woocommerce/related-products";
+// @import "scss/woocommerce/sale-component";
+// @import "scss/woocommerce/shop-hero";
+
