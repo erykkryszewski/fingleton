@@ -25,11 +25,10 @@ $timeline = get_field('timeline');
             <?php foreach($timeline as $key => $item):?>
               <div class="timeline__item">
                 <span class="timeline__year"><?php echo esc_html($item['year']);?></span>
-                <h3 class="timeline__title"><?php echo apply_filters('the_title', $item['title']);?></h3>
                 <div class="timeline__image">
                   <?php echo wp_get_attachment_image($item['image'], 'full', '', ['class' => 'object-fit-cover']);?>
                 </div>
-                <?php echo apply_filters('acf_the_content', $item['text']);?>
+                <h3 class="timeline__title"><?php echo apply_filters('the_title', $item['title']);?></h3>
               </div>
             <?php endforeach;?>
           </div>

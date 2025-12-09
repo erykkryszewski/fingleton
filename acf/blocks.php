@@ -272,4 +272,16 @@ return [
 		'category' => 'fingleton',
 		'align'    => 'full',
 	],
+
+	'pictures' => [
+		'title'    => __('Pictures', 'fingleton'),
+		'category' => 'fingleton',
+		'align'    => 'full',
+	],
+
+	'achievements' => [
+		'title'    => __('Achievements', 'fingleton'),
+		'category' => 'fingleton',
+		'align'    => 'full',
+	],
 ];

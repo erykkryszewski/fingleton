@@ -1,57 +1,43 @@
-import $ from 'jquery';
+import $ from "jquery";
 
-$(document).ready(function(){
-  if($('.timeline__slider').length) {  // Changed to check for the length of the jQuery object
-    $('.timeline__slider').slick({
-      dots: false,
-      arrows: false,
-      infinite: true,
-      speed: 550,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: false,
-      autoplaySpeed: 5000,
-      cssEase: 'ease-out',
-      infinite: true,
-      responsive: [
-        {
-          breakpoint: 1600,
-          settings: {
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1
-          }
-        }
-      ]
-    });
-  
-    $(".slick-prev").text("");
-    $(".slick-next").text("");
-    $("ul.slick-dots > li > button").text("");
+$(document).ready(function () {
+	const $timelineSlider = $(".timeline__slider");
 
-    $('.timeline__slider .slick-slide').on('click', function() {
-      let currentSlide = $('.timeline__slider').slick('slickCurrentSlide');
-      let clickedSlideIndex = $(this).data('slick-index');
-
-      if (clickedSlideIndex > currentSlide) {
-        $('.timeline__slider').slick('slickNext');
-      }
-    });
-  }
+	if ($timelineSlider.length) {
+		$timelineSlider.slick({
+			dots: false,
+			arrows: true,
+			infinite: false,
+			speed: 600,
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			cssEase: "ease-out",
+			prevArrow:
+				'<button type="button" class="slick-prev"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 1L2 10L11 19" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>',
+			nextArrow:
+				'<button type="button" class="slick-next"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L10 10L1 19" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>',
+			responsive: [
+				{
+					breakpoint: 1200,
+					settings: {
+						slidesToShow: 3,
+					},
+				},
+				{
+					breakpoint: 992,
+					settings: {
+						slidesToShow: 2,
+					},
+				},
+				{
+					breakpoint: 576,
+					settings: {
+						slidesToShow: 1,
+						arrows: false,
+						dots: true,
+					},
+				},
+			],
+		});
+	}
 });

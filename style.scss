@@ -55,6 +55,8 @@ Text Domain: fingleton
 @import "scss/blocks/icons";
 @import "scss/blocks/page-hero";
 @import "scss/blocks/two-columns-content";
+@import "scss/blocks/pictures";
+@import "scss/blocks/achievements";
 // @import "scss/blocks/iframe";
 // @import "scss/blocks/image-in-grid";
 // @import "scss/blocks/text-with-image";
@@ -68,7 +70,7 @@ Text Domain: fingleton
 // @import "scss/blocks/faq";
 // @import "scss/blocks/numbers";
 // @import "scss/blocks/team";
-// @import "scss/blocks/testimonials";
+@import "scss/blocks/testimonials";
 // @import "scss/blocks/three-columns-content";
 // @import "scss/blocks/cta";
 // @import "scss/blocks/checkbox-info";

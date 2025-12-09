@@ -1,89 +1,117 @@
 .testimonials {
-  width: 100%;
-  position: relative;
-  max-width: 100%;
-  z-index: 1;
+	padding: rem-calc(80) 0;
+	position: relative;
 
-  &--background {
-    padding: 0 0 65px;
-  }
+	@media (max-width: 991px) {
+		padding: rem-calc(40) 0;
+	}
 
-  &__background {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	&__title {
 
-    @media(max-width: 1099px) {
-      bottom: 0;
-    }
+		span,
+		strong {
+			color: $theme-color;
+		}
+	}
 
-    @media(max-width: 575px) {
-      bottom: 0;
-    }
-  }
+	&__box {
+		background-color: $very-light-gray;
+		padding: rem-calc(60) rem-calc(60) rem-calc(40);
+		position: relative;
 
-  &__wrapper {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
+		@media (max-width: 767px) {
+			padding: rem-calc(30);
+			margin-top: rem-calc(30);
+		}
+	}
 
-  &__content {
-    width: 100%;
+	&__slider {
+		margin-bottom: rem-calc(30);
+	}
 
-    p {
-      font-weight: 600;
+	&__quote {
+		font-size: rem-calc(18);
+		line-height: 1.6;
+		color: lighten($text-color, 10%);
+		margin-bottom: rem-calc(40);
+		font-weight: 400;
+	}
 
-      &:first-of-type {
-        margin: 40px 0 0;
-      }
-    }
-  }
+	&__author {
+		display: flex;
+		align-items: center;
 
-  &__author {
-    @extend .paragraph;
-    font-weight: 600;
-  }
+		&-image {
+			width: rem-calc(60);
+			height: rem-calc(60);
+			border-radius: 50%;
+			overflow: hidden;
+			margin-right: rem-calc(20);
+			flex-shrink: 0;
 
-  &__slider {
-    /* slick styles overwriting */
-    padding: 0 75px;
-    position: relative;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
 
-    @media(max-width: 991px) {
-      margin: 40px 0 0;
-      padding: 0 55px;
-    }
+		&-name {
+			font-size: rem-calc(16);
+			font-weight: 700;
+			color: $text-color;
+			line-height: 1.2;
+		}
 
-    &:before, &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      width: 51px;
-      height: 29px;
-      background: url('./images/quote.png') center/contain no-repeat;
-    }
+		&-role {
+			font-size: rem-calc(12);
+			text-transform: uppercase;
+			color: #999;
+			font-weight: 600;
+			margin-top: 2px;
+		}
+	}
 
-    &:before {
-      left: 0;
-    }
+	&__controls {
+		display: flex;
+		justify-content: flex-end;
+		gap: 15px;
+		margin-top: rem-calc(20);
 
-    &:after {
-      right: 0;
-    }
+		@media (max-width: 767px) {
+			justify-content: flex-start;
+			margin-top: rem-calc(30);
+		}
+	}
 
-    .slick-slide {
-      margin: 0 rem-calc(20);
-    }
+	&__arrow {
+		width: rem-calc(50);
+		height: rem-calc(50);
+		border-radius: 50%;
+		background: $white;
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
 
-    .slick-list {
-      margin: 0 rem-calc(-20);
-    }
+		svg {
+			width: 10px;
+			height: auto;
 
-    .slick-arrow {
-      display: none;
-    }
-  }
+			path {
+				stroke: $text-color;
+				transition: stroke 0.3s ease;
+			}
+		}
+
+		&:hover {
+			background: $theme-color;
+
+			svg path {
+				stroke: $white;
+			}
+		}
+	}
 }

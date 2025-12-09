@@ -1,0 +1,129 @@
+.achievements {
+	padding: rem-calc(80) 0;
+	background-color: $very-light-gray;
+	position: relative;
+
+	@media (max-width: 991px) {
+		padding: rem-calc(40) 0;
+	}
+
+	&__intro-row {
+		margin-bottom: rem-calc(60);
+	}
+
+	&__title {
+		margin-bottom: rem-calc(30);
+	}
+
+	&__description {
+		// Styl dziedziczony z .paragraph, ale można doprecyzować
+		max-width: rem-calc(450);
+	}
+
+	// Karty po prawej (Repeater)
+	&__cards {
+		display: flex;
+		flex-direction: column;
+		gap: rem-calc(30);
+	}
+
+	&__card {
+		background: $white;
+		padding: rem-calc(30);
+		border: 1px solid $border-color; // Zakładam, że masz taką zmienną, jak nie to #dcdcdc
+		transition: all 0.3s ease;
+
+		&:hover {
+			box-shadow: 0 10px 30px rgba($black, 0.05);
+			border-color: $theme-color;
+		}
+
+		&-title {
+			font-size: rem-calc(18);
+			font-weight: 700;
+			margin-bottom: rem-calc(10);
+			color: $text-color;
+		}
+
+		&-text {
+			font-size: rem-calc(15);
+			color: lighten($text-color, 10%);
+			margin: 0;
+			line-height: 1.5;
+		}
+	}
+
+	// Galeria - Mozaika
+	&__gallery {
+		margin-top: rem-calc(50);
+
+		&-row {
+			align-items: flex-start; // Żeby teksty nie rozciągały się na całą wysokość
+
+			&--top {
+				margin-bottom: rem-calc(30);
+				align-items: center; // W górnym rzędzie centrujemy tekst do obrazka
+			}
+		}
+
+		&-text {
+			margin-top: rem-calc(20);
+
+			@media (min-width: 992px) {
+				margin-top: 0;
+				padding-left: rem-calc(30); // Odsunięcie tekstu od obrazka po lewej
+			}
+
+			&--bottom {
+				margin-top: rem-calc(30);
+				margin-bottom: rem-calc(30);
+				padding-left: 0; // Tu tekst jest pod obrazkiem, więc resetujemy padding
+
+				span {
+					font-weight: 400; // Np. "We deliver" cieńsze
+					display: block;
+				}
+
+				strong {
+					font-weight: 700; // "projects that work" grubsze
+				}
+			}
+		}
+	}
+
+	&__image-wrapper {
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+			object-fit: cover;
+		}
+
+		&--wide {
+			height: rem-calc(300);
+
+			@media (min-width: 992px) {
+				height: rem-calc(250);
+			}
+		}
+
+		&--small {
+			height: rem-calc(300); // Kwadrat na lewo
+		}
+
+		&--big {
+			height: rem-calc(500); // Duży obraz po prawej
+
+			@media (max-width: 991px) {
+				margin-top: rem-calc(30);
+				height: auto;
+			}
+		}
+	}
+
+	&__button {
+		// Styl zaciągnięty z globalnego .button, tutaj tylko marginesy jeśli trzeba
+	}
+}
