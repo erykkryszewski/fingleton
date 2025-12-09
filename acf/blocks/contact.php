@@ -79,7 +79,7 @@ if (!empty($location_info) && is_array($location_info)) {
 <div class="contact">
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-lg-9">
         <div class="contact__intro">
           <div>
             <?php if (!empty($title)) : ?>
@@ -89,14 +89,21 @@ if (!empty($location_info) && is_array($location_info)) {
               <?php echo apply_filters('acf_the_content', $text); ?>
             <?php endif; ?>
           </div>
-          <a href="#map" class="contact__link"></a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="contact__button-wrapper">
+            <a href="/careers" class="button content-with-buttons__button">Careers</a>
         </div>
       </div>
     </div>
 
     <?php if (!empty($locationsGroupedByCountry)) : ?>
       <div class="contact__wrapper">
-        <div class="contact__tabs">
+        <div class="contact__layout">
+          <div class="contact__details">
+
+                  <div class="contact__tabs">
           <div class="contact__countries">
             <?php
             $isFirstCountry = true;
@@ -165,8 +172,6 @@ if (!empty($location_info) && is_array($location_info)) {
           </div>
         </div>
 
-        <div class="contact__layout">
-          <div class="contact__details">
             <?php
             $isFirstCountry = true;
             foreach ($locationsGroupedByCountry as $countryKeyString => $countryDataArray) :

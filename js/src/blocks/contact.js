@@ -85,6 +85,23 @@ function initContactTabs() {
 		if (window.updateContactMapLocation) {
 			window.updateContactMapLocation(locationIdString);
 		}
+
+		const windowWidthNumber = window.innerWidth || $(window).width();
+
+		if (windowWidthNumber <= 1199) {
+			const tabsElement = $(".contact__tabs").first();
+
+			if (tabsElement.length) {
+				const targetTopNumber = tabsElement.offset().top - 30;
+
+				$("html, body").stop(true).animate(
+					{
+						scrollTop: targetTopNumber,
+					},
+					400
+				);
+			}
+		}
 	});
 
 	const defaultLocationButtonElement = $(

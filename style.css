@@ -7001,15 +7001,17 @@ ul > li, ol > li {
   width: 100%;
 }
 
-.location-info__content > span, .location-info__content > a {
+.location-info__content > span,
+.location-info__content > a {
   display: block;
   margin: 0 0 22px;
   position: relative;
-  padding: 0 0 0 35px;
+  padding: 0 0 0 30px;
 }
 
-.location-info__content > span::before, .location-info__content > a::before {
-  content: '';
+.location-info__content > span::before,
+.location-info__content > a::before {
+  content: "";
   display: block;
   position: absolute;
   left: 0;
@@ -7875,6 +7877,8 @@ ul > li, ol > li {
 .contact {
   width: 100%;
   position: relative;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 @media (min-width: 992px) {
@@ -7903,8 +7907,23 @@ ul > li, ol > li {
           justify-content: space-between;
 }
 
-.contact__intro > p {
-  max-width: 500px;
+.contact__intro p {
+  max-width: 800px;
+}
+
+.contact__button-wrapper {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0 0;
 }
 
 .contact__link {
@@ -7932,11 +7951,29 @@ ul > li, ol > li {
 }
 
 .contact__wrapper {
-  margin-top: 48px;
+  margin-top: 70px;
+  position: relative;
+}
+
+@media (max-width: 1199px) {
+  .contact__wrapper {
+    margin-top: 50px;
+  }
+}
+
+.contact__wrapper::after {
+  position: absolute;
+  width: 200vw;
+  height: 3px;
+  background: #f0f0f0;
+  top: 0;
+  display: block;
+  left: -50vw;
+  content: "";
 }
 
 .contact__tabs {
-  margin-bottom: 32px;
+  margin-bottom: 25px;
 }
 
 .contact__countries {
@@ -7947,7 +7984,7 @@ ul > li, ol > li {
       -ms-flex-align: center;
           align-items: center;
   gap: 32px;
-  margin-bottom: 24px;
+  margin: 6px 0 30px;
 }
 
 .contact__country-button {
@@ -7963,17 +8000,17 @@ ul > li, ol > li {
 }
 
 .contact__country-button.is-active {
-  color: #7a9a01;
+  color: #6c9346;
 }
 
 .contact__country-button.is-active::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
+  top: -6px;
   width: 100%;
-  height: 2px;
-  background-color: #7a9a01;
+  height: 3px;
+  background-color: #6c9346;
 }
 
 .contact__location-tabs {
@@ -7994,35 +8031,37 @@ ul > li, ol > li {
 }
 
 .contact__location-button {
-  border-radius: 4px;
+  border-radius: 0;
   border: 1px solid transparent;
-  background-color: #f4f4f4;
+  background-color: #e9e9e9;
   padding: 8px 20px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.4;
+  font-weight: 600;
   cursor: pointer;
-  color: #444;
+  color: #232323;
   -webkit-transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, -webkit-box-shadow 150ms ease;
   transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, -webkit-box-shadow 150ms ease;
   transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
   transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease, -webkit-box-shadow 150ms ease;
+  border-radius: 5px;
 }
 
 .contact__location-button.is-active {
   background-color: #fff;
   border-color: #d5d5d5;
-  color: #222;
-  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.04);
+  color: #6c9346;
 }
 
 .contact__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.3fr);
+  gap: 30px;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 991px) {
@@ -8035,8 +8074,15 @@ ul > li, ol > li {
   position: relative;
 }
 
+@media (min-width: 1200px) {
+  .contact__details {
+    min-height: 536px;
+  }
+}
+
 .contact__map-col {
   min-height: 260px;
+  position: relative;
 }
 
 @media (min-width: 992px) {
@@ -8046,10 +8092,19 @@ ul > li, ol > li {
 }
 
 .contact__map {
-  width: 100%;
   height: 100%;
-  border-radius: 4px;
+  border-radius: 0;
   overflow: hidden;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 52vw;
+}
+
+@media (max-width: 1199px) {
+  .contact__map {
+    width: 100%;
+  }
 }
 
 .contact-location-panel {
@@ -8070,7 +8125,7 @@ ul > li, ol > li {
 
 .location-info--contact .location-info__content {
   display: grid;
-  row-gap: 14px;
+  row-gap: 0;
 }
 
 .location-info__address,
@@ -8085,7 +8140,7 @@ ul > li, ol > li {
 .location-info__phone span,
 .location-info__email span,
 .location-info__website {
-  color: #7a9a01;
+  color: #6c9346;
   text-decoration: none;
 }
 
@@ -8155,8 +8210,8 @@ ul > li, ol > li {
 
 .content-with-buttons__button:hover {
   color: #ffffff;
-  border: 1px solid #ccd264;
-  background: #ccd264;
+  border: 1px solid #6c9346;
+  background: #6c9346;
 }
 
 .content-with-buttons__button:hover::after {
@@ -8169,7 +8224,7 @@ ul > li, ol > li {
   height: 13px;
   background: url("./images/button-decorator.png") center/contain no-repeat;
   display: block;
-  content: '';
+  content: "";
   margin: 0;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
@@ -8177,8 +8232,8 @@ ul > li, ol > li {
 
 .content-with-buttons__button:last-child {
   color: #ffffff;
-  border: 1px solid #ccd264;
-  background: #ccd264;
+  border: 1px solid #6c9346;
+  background: #6c9346;
 }
 
 .content-with-buttons__button:last-child::after {
