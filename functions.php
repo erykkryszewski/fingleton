@@ -85,7 +85,7 @@ add_action('wp_enqueue_scripts', function () {
   wp_dequeue_style('search-filter-plugin-styles');
   wp_deregister_style('search-filter-plugin-styles');
 
-  $googleApiKeyString = 'AIzaSyA9MEntXqLPFaP5rwm8OoPEBpd0wUs80Eo';
+  $googleApiKeyString = 'cAIzaSyA9MEntXqLPFaP5rwm8OoPEBpd0wUs80Eo';
 
   wp_enqueue_script(
     'fingleton-main',

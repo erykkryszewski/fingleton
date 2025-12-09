@@ -118,6 +118,31 @@ let contactMapMarkerObject = null;
 let contactMapGeocoderObject = null;
 let contactMapLocationsByIdObject = {};
 
+function isGoogleMapsAvailable() {
+	const hasGoogleObject = typeof window.google === "object" && window.google;
+	const hasMapsObject =
+		hasGoogleObject && typeof window.google.maps === "object";
+
+	return hasMapsObject;
+}
+
+function isGoogleMapInErrorState() {
+	const mapElement = document.getElementById("map");
+
+	if (!mapElement) {
+		return false;
+	}
+
+	const errorTitleElement = mapElement.querySelector(".gm-err-title");
+	const errorMessageElement = mapElement.querySelector(".gm-err-message");
+
+	if (errorTitleElement || errorMessageElement) {
+		return true;
+	}
+
+	return false;
+}
+
 function getContactMapStylesArray() {
 	const stylesArray = [
 		{
@@ -307,6 +332,32 @@ function ensureContactMapLocationsCache() {
 	});
 }
 
+function renderContactStaticMap(locationObject) {
+	const mapElement = document.getElementById("map");
+
+	if (!mapElement) {
+		return;
+	}
+
+	if (!locationObject || !locationObject.address) {
+		return;
+	}
+
+	const encodedAddressString = encodeURIComponent(locationObject.address);
+	const mapUrlString =
+		"https://www.google.com/maps?q=" + encodedAddressString + "&output=embed";
+
+	mapElement.innerHTML = "";
+
+	const iframeElement = document.createElement("iframe");
+	iframeElement.setAttribute("src", mapUrlString);
+	iframeElement.setAttribute("style", "border:0;width:100%;height:100%;");
+	iframeElement.setAttribute("loading", "lazy");
+	iframeElement.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+
+	mapElement.appendChild(iframeElement);
+}
+
 function setContactMapMarkerPosition(locationObject) {
 	if (!contactMapObject || !locationObject) {
 		return;
@@ -331,13 +382,24 @@ function setContactMapMarkerPosition(locationObject) {
 }
 
 window.updateContactMapLocation = function (locationIdString) {
-	if (!contactMapObject || !locationIdString) {
+	if (!locationIdString) {
 		return;
 	}
+
+	ensureContactMapLocationsCache();
 
 	const locationObject = contactMapLocationsByIdObject[locationIdString];
 
 	if (!locationObject) {
+		return;
+	}
+
+	if (
+		!isGoogleMapsAvailable() ||
+		!contactMapObject ||
+		isGoogleMapInErrorState()
+	) {
+		renderContactStaticMap(locationObject);
 		return;
 	}
 

@@ -260,4 +260,16 @@ return [
 		'category' => 'fingleton',
 		'align'    => 'full',
 	],
+
+	'page-hero' => [
+		'title'    => __('Page hero', 'fingleton'),
+		'category' => 'fingleton',
+		'align'    => 'full',
+	],
+
+	'two-columns-content' => [
+		'title'    => __('Two columns content', 'fingleton'),
+		'category' => 'fingleton',
+		'align'    => 'full',
+	],
 ];

@@ -8539,6 +8539,10 @@ ul > li, ol > li {
   margin: 20px 0 0;
 }
 
+.two-columns-content {
+  width: 100%;
+}
+
 .header {
   z-index: 20;
   position: absolute;
