@@ -85,36 +85,36 @@ add_action('wp_enqueue_scripts', function () {
   wp_dequeue_style('search-filter-plugin-styles');
   wp_deregister_style('search-filter-plugin-styles');
 
-  $google_api_key = 'AIzaSyD_zLIJ5Jv7kYR22m2N7ds_9Uv-PeqbpUc';
+  $googleApiKeyString = 'AIzaSyA9MEntXqLPFaP5rwm8OoPEBpd0wUs80Eo';
 
-  if ($google_api_key) { 
-    wp_enqueue_script( 'google-maps-api-key', "https://maps.googleapis.com/maps/api/js?key=$google_api_key", [ 'jquery' ], "https://maps.googleapis.com/maps/api/js?key=$google_api_key", true); 
+  wp_enqueue_script(
+    'fingleton-main',
+    get_stylesheet_directory_uri() . '/js/dist/main.js',
+    array('jquery'),
+    filemtime(get_stylesheet_directory() . '/js/dist/main.js'),
+    true
+  );
+
+  if ($googleApiKeyString !== '') {
+    $googleMapsUrlString = 'https://maps.googleapis.com/maps/api/js?key=' . $googleApiKeyString . '&callback=initContactMap';
+
+    wp_enqueue_script(
+      'google-maps-api',
+      $googleMapsUrlString,
+      array('fingleton-main'),
+      null,
+      true
+    );
   }
 
-	wp_enqueue_script('fingleton-main', get_stylesheet_directory_uri() . '/js/dist/main.js', [ 'jquery' ], filemtime(get_stylesheet_directory() . '/js/dist/main.js'), true);
-	wp_enqueue_style('style', get_stylesheet_uri());
-
+  wp_enqueue_style(
+    'style',
+    get_stylesheet_uri(),
+    array(),
+    filemtime(get_stylesheet_directory() . '/style.css')
+  );
 });
 
-/**
- * Enqeues block editor assets
- *
- * @since 1.0.0
- */
-add_action('enqueue_block_editor_assets', function () {
-	wp_enqueue_script('fingleton-admin', get_stylesheet_directory_uri() . '/js/dist/editor.js', [ 'wp-data' ], filemtime(get_stylesheet_directory() . '/js/dist/editor.js'), true);
-});
-
-/**
- * Enqueue scripts for all admin pages.
- *
- * @since 1.0.0
- */
-add_action('admin_enqueue_scripts', function () {
-	if (is_admin()) {
-		wp_enqueue_style('fingleton-admin', get_stylesheet_directory_uri() . '/style-editor.css', [], filemtime(get_stylesheet_directory() . '/style-editor.css'));
-	}
-});
 
 /**
  * Deregister gravity forms recaptcha scripts.

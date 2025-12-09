@@ -12,19 +12,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: fingleton
 */
 
-
 @import "scss/integrations/bootstrap";
 @import "slick-carousel/slick/slick.scss";
 @import "scss/integrations/fancybox";
 @import "scss/integrations/aos";
-
 @import "scss/variables";
 @import "scss/style-editor-variables";
-
 @import "scss/global/functions";
 @import "scss/global/typography";
 @import "scss/global/global";
-
 @import "scss/components/preloader";
 @import "scss/components/social-media";
 @import "scss/components/button";
@@ -43,7 +39,6 @@ Text Domain: fingleton
 @import "scss/components/slick-dots";
 @import "scss/components/animated-words";
 @import "scss/components/projects-filters";
-
 @import "scss/blocks/homepage-hero";
 @import "scss/blocks/subpage-hero";
 @import "scss/blocks/slider-with-content";
@@ -113,4 +108,3 @@ Text Domain: fingleton
 // @import "scss/woocommerce/related-products";
 // @import "scss/woocommerce/sale-component";
 // @import "scss/woocommerce/shop-hero";
-
