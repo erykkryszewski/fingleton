@@ -7324,6 +7324,10 @@ ul > li, ol > li {
   max-width: 274px;
 }
 
+.animated-words--contact {
+  margin: 20px 0 50px;
+}
+
 .projects-filters {
   width: 100%;
 }

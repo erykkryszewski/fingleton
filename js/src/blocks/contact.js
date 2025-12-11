@@ -117,6 +117,7 @@ let contactMapObject = null;
 let contactMapMarkerObject = null;
 let contactMapGeocoderObject = null;
 let contactMapLocationsByIdObject = {};
+let contactMapUseStaticFallbackBoolean = false;
 
 function isGoogleMapsAvailable() {
 	const hasGoogleObject = typeof window.google === "object" && window.google;
@@ -339,13 +340,37 @@ function renderContactStaticMap(locationObject) {
 		return;
 	}
 
-	if (!locationObject || !locationObject.address) {
+	if (!locationObject) {
 		return;
 	}
 
-	const encodedAddressString = encodeURIComponent(locationObject.address);
-	const mapUrlString =
-		"https://www.google.com/maps?q=" + encodedAddressString + "&output=embed";
+	let mapUrlString = "";
+
+	const hasLatNumber =
+		typeof locationObject.lat === "number" && !Number.isNaN(locationObject.lat);
+	const hasLngNumber =
+		typeof locationObject.lng === "number" && !Number.isNaN(locationObject.lng);
+
+	if (hasLatNumber && hasLngNumber) {
+		const latString = String(locationObject.lat);
+		const lngString = String(locationObject.lng);
+
+		mapUrlString =
+			"https://www.google.com/maps?q=" +
+			encodeURIComponent(latString + "," + lngString) +
+			"&z=10&output=embed";
+	} else if (locationObject.address) {
+		const encodedAddressString = encodeURIComponent(locationObject.address);
+		mapUrlString =
+			"https://www.google.com/maps?q=" + encodedAddressString + "&output=embed";
+	} else {
+		return;
+	}
+
+	contactMapUseStaticFallbackBoolean = true;
+	contactMapObject = null;
+	contactMapMarkerObject = null;
+	contactMapGeocoderObject = null;
 
 	mapElement.innerHTML = "";
 
@@ -395,6 +420,7 @@ window.updateContactMapLocation = function (locationIdString) {
 	}
 
 	if (
+		contactMapUseStaticFallbackBoolean ||
 		!isGoogleMapsAvailable() ||
 		!contactMapObject ||
 		isGoogleMapInErrorState()

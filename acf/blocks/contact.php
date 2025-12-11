@@ -12,6 +12,9 @@ $title = get_field('title');
 $text = get_field('text');
 $location_info = get_field('location_info');
 
+$sentence_one = get_field('sentence_one');
+$sentence_two = get_field('sentence_two');
+
 $locationsGroupedByCountry = array();
 
 if (!empty($location_info) && is_array($location_info)) {
@@ -287,4 +290,15 @@ if (!empty($location_info) && is_array($location_info)) {
       </div>
     <?php endif; ?>
   </div>
+
+    <?php if(!empty($sentence_one) && !empty($sentence_two)):?>
+      <div class="animated-words animated-words--contact">
+        <div class="animated-words__item animated-words__item--one">
+          <?php echo wp_get_attachment_image($sentence_one, 'full');?>
+        </div>
+        <div class="animated-words__item animated-words__item--two">
+          <?php echo wp_get_attachment_image($sentence_two, 'full');?>
+        </div>
+      </div>
+    <?php endif;?>
 </div>
