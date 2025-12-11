@@ -474,6 +474,10 @@ window.updateContactMapLocation = function (locationIdString) {
 };
 
 window.initContactMap = function () {
+	if (contactMapUseStaticFallbackBoolean) {
+		return;
+	}
+
 	const mapElement = document.getElementById("map");
 
 	if (!mapElement) {
