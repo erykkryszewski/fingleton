@@ -27,6 +27,7 @@ $facebook_pixel_code = get_field('facebook_pixel_code', 'options');
 $footer_logo = get_field('footer_logo', 'options');
 $footer_text = get_field('footer_text', 'options');
 $footer_locations = get_field('footer_locations', 'options');
+$footer_image = get_field('footer_image', 'options');
 
 $page_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
@@ -46,14 +47,25 @@ $page_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 		<div class="container">
 			<div class="footer__wrapper">
 				<div class="row footer__row">
-					<div class="col-12 col-lg-3">
+					<div class="col-12 col-lg-2">
 						<div class="footer__column">
 							<a href="/" class="footer__logo">
 								<?php echo wp_get_attachment_image($footer_logo, 'large', '', ["class" => ""]); ?>
 							</a>
+                            <?php if(!empty($global_social_media)):?>
+								<ul class="social-media footer__social-media">
+									<?php foreach($global_social_media as $key => $item):?>
+										<li>
+											<a href="<?php echo esc_url_raw($item['link']);?>" target="_blank">
+												<?php echo wp_get_attachment_image($item['icon'], 'full', '', ['class' => '']);?>  
+											</a>
+										</li>
+									<?php endforeach;?>
+								</ul>
+							<?php endif;?>
 						</div>
 					</div>
-					<div class="col-12 col-lg-9">
+					<div class="col-12 col-lg-4">
 						<div class="footer__content">
 							<div class="footer__text">
 								<?php echo apply_filters('acf_the_content', $footer_text);?>
@@ -67,19 +79,16 @@ $page_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 									<?php endforeach;?>
 								</ul>
 							<?php endif;?>
-							<?php if(!empty($global_social_media)):?>
-								<ul class="social-media footer__social-media">
-									<?php foreach($global_social_media as $key => $item):?>
-										<li>
-											<a href="<?php echo esc_url_raw($item['link']);?>" target="_blank">
-												<?php echo wp_get_attachment_image($item['icon'], 'full', '', ['class' => '']);?>  
-											</a>
-										</li>
-									<?php endforeach;?>
-								</ul>
-							<?php endif;?>
+
 						</div>
 					</div>
+                    <?php if(!empty($footer_image)):?>
+					<div class="col-12 col-lg-6">
+                        <div class="footer__image">
+                            <?php echo wp_get_attachment_image($footer_image, 'large', '', ["class" => ""]); ?>
+                        </div>
+					</div>
+                    <?php endif;?>
 				</div>
 			</div>
 		</div>
