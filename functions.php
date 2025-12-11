@@ -85,7 +85,7 @@ add_action('wp_enqueue_scripts', function () {
   wp_dequeue_style('search-filter-plugin-styles');
   wp_deregister_style('search-filter-plugin-styles');
 
-  $googleApiKeyString = '123AIzaSyA9MEntXqLPFaP5rwm8OoPEBpd0wUs80Eo123';
+  $googleApiKeyString = '123';
 
   wp_enqueue_script(
     'fingleton-main',
@@ -95,17 +95,17 @@ add_action('wp_enqueue_scripts', function () {
     true
   );
 
-  if ($googleApiKeyString !== '') {
-    $googleMapsUrlString = 'https://maps.googleapis.com/maps/api/js?key=' . $googleApiKeyString . '&callback=initContactMap';
+    if ($googleApiKeyString !== '') {
+    $googleMapsUrlString = 'https://maps.googleapis.com/maps/api/js?key=' . $googleApiKeyString;
 
     wp_enqueue_script(
-      'google-maps-api',
-      $googleMapsUrlString,
-      array('fingleton-main'),
-      null,
-      true
+        'google-maps-api',
+        $googleMapsUrlString,
+        array('fingleton-main'),
+        null,
+        true
     );
-  }
+    }
 
   wp_enqueue_style(
     'style',

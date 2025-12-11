@@ -118,6 +118,11 @@ let contactMapMarkerObject = null;
 let contactMapGeocoderObject = null;
 let contactMapLocationsByIdObject = {};
 let contactMapUseStaticFallbackBoolean = false;
+let contactMapDefaultLocationIdString = null;
+
+window.gm_authFailure = function () {
+	contactMapUseStaticFallbackBoolean = true;
+};
 
 function isGoogleMapsAvailable() {
 	const hasGoogleObject = typeof window.google === "object" && window.google;
@@ -473,14 +478,56 @@ window.updateContactMapLocation = function (locationIdString) {
 	);
 };
 
-window.initContactMap = function () {
-	if (contactMapUseStaticFallbackBoolean) {
+function ensureContactMapErrorWatcher(defaultLocationIdString) {
+	if (!defaultLocationIdString) {
 		return;
 	}
 
+	function runCheck() {
+		if (!contactMapObject) {
+			return;
+		}
+
+		if (!isGoogleMapInErrorState()) {
+			return;
+		}
+
+		contactMapObject = null;
+		contactMapGeocoderObject = null;
+		contactMapUseStaticFallbackBoolean = true;
+
+		if (window.updateContactMapLocation) {
+			window.updateContactMapLocation(defaultLocationIdString);
+		}
+	}
+
+	setTimeout(runCheck, 200);
+	setTimeout(runCheck, 1200);
+}
+
+function initContactMapIfAvailable() {
 	const mapElement = document.getElementById("map");
 
 	if (!mapElement) {
+		return;
+	}
+
+	ensureContactMapLocationsCache();
+
+	const defaultLocationButtonElement = $(
+		".contact__location-button.is-active"
+	).first();
+
+	let defaultLocationIdString = null;
+
+	if (defaultLocationButtonElement.length) {
+		defaultLocationIdString = defaultLocationButtonElement.data("locationId");
+	}
+
+	if (!isGoogleMapsAvailable()) {
+		if (defaultLocationIdString && window.updateContactMapLocation) {
+			window.updateContactMapLocation(defaultLocationIdString);
+		}
 		return;
 	}
 
@@ -489,33 +536,37 @@ window.initContactMap = function () {
 		lng: -7.9,
 	};
 
-	contactMapObject = new google.maps.Map(mapElement, {
-		center: defaultCenterObject,
-		zoom: 6,
-		styles: getContactMapStylesArray(),
-		disableDefaultUI: true,
-		gestureHandling: "cooperative",
-	});
+	try {
+		contactMapObject = new google.maps.Map(mapElement, {
+			center: defaultCenterObject,
+			zoom: 6,
+			styles: getContactMapStylesArray(),
+			disableDefaultUI: true,
+			gestureHandling: "cooperative",
+		});
 
-	contactMapGeocoderObject = new google.maps.Geocoder();
+		contactMapGeocoderObject = new google.maps.Geocoder();
+	} catch (errorObject) {
+		contactMapObject = null;
+		contactMapGeocoderObject = null;
+		contactMapUseStaticFallbackBoolean = true;
 
-	ensureContactMapLocationsCache();
-
-	const defaultLocationButtonElement = $(
-		".contact__location-button.is-active"
-	).first();
-
-	if (defaultLocationButtonElement.length) {
-		const defaultLocationIdString =
-			defaultLocationButtonElement.data("locationId");
-
-		if (defaultLocationIdString) {
+		if (defaultLocationIdString && window.updateContactMapLocation) {
 			window.updateContactMapLocation(defaultLocationIdString);
 		}
+
+		return;
 	}
-};
+
+	ensureContactMapErrorWatcher(defaultLocationIdString);
+
+	if (defaultLocationIdString && window.updateContactMapLocation) {
+		window.updateContactMapLocation(defaultLocationIdString);
+	}
+}
 
 $(function () {
 	initContactScrollLink();
+	initContactMapIfAvailable();
 	initContactTabs();
 });
