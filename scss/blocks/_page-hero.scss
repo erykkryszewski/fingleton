@@ -1,0 +1,165 @@
+.page-hero {
+	width: 100%;
+	position: relative;
+	max-width: 100%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	min-height: rem-calc(470);
+	padding: rem-calc(110) 0 rem-calc(100);
+	margin: -40px 0 0;
+
+	@media (max-width: 991px) {
+		padding: rem-calc(80) 0 rem-calc(70);
+		min-height: rem-calc(420);
+	}
+
+	@media (max-width: 767px) {
+		padding: rem-calc(70) 0 rem-calc(60);
+		min-height: auto;
+	}
+
+	&__background {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background:
+ linear-gradient(90deg, rgba(16, 22, 6, 0.5) 0%, rgba(16, 22, 6, 0.38) 55%, rgba(16, 22, 6, 0.25) 100%);
+			z-index: 2;
+		}
+
+		img {
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+		}
+
+		&--plain {
+			background: rgba(16, 22, 6, 0.78);
+		}
+
+		&::before {
+			content: "";
+			z-index: 3;
+			width: 50%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			transform: translateX(-50vw);
+			opacity: 0;
+			position: absolute;
+			overflow: hidden;
+			transition: all 1s ease-in-out;
+			background: rgba($white, 0.03);
+			transition-delay: 300ms;
+			backdrop-filter: blur(4px);
+			display: block;
+			pointer-events: none;
+		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 2;
+	}
+
+	&__wrapper {
+		width: 100%;
+	}
+
+	&__content {
+		width: 100%;
+		max-width: rem-calc(560);
+	}
+
+	&__title {
+		color: $white;
+		margin: 0;
+	}
+
+	&__text {
+		width: 100%;
+		margin: rem-calc(18) 0 0;
+
+		p {
+
+			@extend .paragraph;
+			margin: rem-calc(10) 0 0;
+			color: rgba(255, 255, 255, 0.82);
+		}
+
+		p:first-child {
+			margin: 0;
+		}
+
+		a {
+			color: rgba(255, 255, 255, 0.9);
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem-calc(14);
+		margin: rem-calc(34) 0 0;
+
+		@media (max-width: 767px) {
+			margin: rem-calc(26) 0 0;
+			gap: rem-calc(12);
+		}
+	}
+
+	&__button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: rem-calc(10);
+	}
+
+	&__buttons {
+
+		.page-hero__button:first-child {
+			background: $theme-color;
+			border: 1px solid $theme-color;
+			color: $text-color;
+
+			&:hover {
+				background: transparent;
+				color: $white;
+			}
+		}
+
+		.page-hero__button:not(:first-child) {
+			background: transparent;
+			border: 1px solid $theme-color;
+			color: $theme-color;
+
+			&:hover {
+				background: $theme-color;
+				color: $white;
+			}
+		}
+	}
+
+	&--blur-visible {
+
+		.page-hero__background {
+
+			&::before {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+	}
+}

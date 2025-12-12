@@ -1,3 +1,26 @@
 .two-columns-content {
 	width: 100%;
+
+	&__item {
+
+		> * {
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+
+			@extend .h1;
+		}
+	}
+
+	&__button {
+		margin: 50px 0 0;
+	}
 }

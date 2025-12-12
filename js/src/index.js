@@ -58,6 +58,7 @@ import "./blocks/contact";
 import "./blocks/gallery";
 import "./blocks/timeline";
 import "./blocks/location-info";
+import "./blocks/page-hero";
 
 import "./components/cookies";
 import "./components/section-title";

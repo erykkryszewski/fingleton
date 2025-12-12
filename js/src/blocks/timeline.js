@@ -1,43 +1,51 @@
-import $ from "jquery";
+jQuery(function ($) {
+	const timelineSliderElementName = $(".timeline__slider");
 
-$(document).ready(function () {
-	const $timelineSlider = $(".timeline__slider");
-
-	if ($timelineSlider.length) {
-		$timelineSlider.slick({
-			dots: false,
-			arrows: true,
-			infinite: false,
-			speed: 600,
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			cssEase: "ease-out",
-			prevArrow:
-				'<button type="button" class="slick-prev"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 1L2 10L11 19" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>',
-			nextArrow:
-				'<button type="button" class="slick-next"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L10 10L1 19" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>',
-			responsive: [
-				{
-					breakpoint: 1200,
-					settings: {
-						slidesToShow: 3,
-					},
-				},
-				{
-					breakpoint: 992,
-					settings: {
-						slidesToShow: 2,
-					},
-				},
-				{
-					breakpoint: 576,
-					settings: {
-						slidesToShow: 1,
-						arrows: false,
-						dots: true,
-					},
-				},
-			],
-		});
+	if (!timelineSliderElementName.length) {
+		return;
 	}
+
+	if (timelineSliderElementName.hasClass("slick-initialized")) {
+		return;
+	}
+
+	const arrowLeftHtmlString =
+		'<button type="button" class="slick-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none"><path d="M15 19L8 12L15 5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+	const arrowRightHtmlString =
+		'<button type="button" class="slick-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5L16 12L9 19" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+
+	timelineSliderElementName.slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		centerMode: true,
+		centerPadding: "160px",
+		infinite: false,
+		arrows: true,
+		dots: false,
+		prevArrow: arrowLeftHtmlString,
+		nextArrow: arrowRightHtmlString,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 2,
+					centerPadding: "120px",
+				},
+			},
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 1,
+					centerPadding: "140px",
+				},
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 1,
+					centerPadding: "70px",
+				},
+			},
+		],
+	});
 });

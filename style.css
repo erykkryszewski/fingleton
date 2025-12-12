@@ -6135,7 +6135,11 @@ body[data-aos-easing="ease-out"] [data-aos] {
 /*
  * Typography
  */
-h1, .h1, .hero-slider__title, .subpage-hero__title, .two-columns-text__title, .text-with-words__title {
+h1, .h1, .hero-slider__title, .subpage-hero__title, .two-columns-text__title, .text-with-words__title, .two-columns-content__item h1,
+.two-columns-content__item h2,
+.two-columns-content__item h3,
+.two-columns-content__item h4,
+.two-columns-content__item h5 {
   color: #232323;
   font-family: "Raleway", sans-serif;
   font-size: 45px;
@@ -6181,7 +6185,7 @@ h4, .h4, .nav__subtitle {
   font-style: normal;
 }
 
-p, .paragraph, .hero-slider .slick-prev::after, .hero-slider .slick-prev::before, .hero-slider .slick-next::after, .hero-slider .slick-next::before, .nav__items li a {
+p, .paragraph, .hero-slider .slick-prev::after, .hero-slider .slick-prev::before, .hero-slider .slick-next::after, .hero-slider .slick-next::before, .page-hero__text p, .nav__items li a {
   font-size: 1.0625rem;
   line-height: 1.65;
   margin: 1.25rem 0 0;
@@ -6190,14 +6194,14 @@ p, .paragraph, .hero-slider .slick-prev::after, .hero-slider .slick-prev::before
   font-style: normal;
 }
 
-p > a, .paragraph > a, .hero-slider .slick-prev::after > a, .hero-slider .slick-prev::before > a, .hero-slider .slick-next::after > a, .hero-slider .slick-next::before > a, .nav__items li a > a {
+p > a, .paragraph > a, .hero-slider .slick-prev::after > a, .hero-slider .slick-prev::before > a, .hero-slider .slick-next::after > a, .hero-slider .slick-next::before > a, .page-hero__text p > a, .nav__items li a > a {
   font-weight: 400;
   text-decoration: underline;
   display: inline-block;
   color: #232323;
 }
 
-p > a:hover, .paragraph > a:hover, .hero-slider .slick-prev::after > a:hover, .hero-slider .slick-prev::before > a:hover, .hero-slider .slick-next::after > a:hover, .hero-slider .slick-next::before > a:hover, .nav__items li a > a:hover {
+p > a:hover, .paragraph > a:hover, .hero-slider .slick-prev::after > a:hover, .hero-slider .slick-prev::before > a:hover, .hero-slider .slick-next::after > a:hover, .hero-slider .slick-next::before > a:hover, .page-hero__text p > a:hover, .nav__items li a > a:hover {
   text-decoration: underline;
   color: #232323;
 }
@@ -8665,6 +8669,7 @@ ul > li, ol > li {
 
 .gallery {
   width: 100%;
+  position: relative;
 }
 
 .gallery__slider {
@@ -8719,8 +8724,195 @@ ul > li, ol > li {
   margin: 20px 0 0;
 }
 
+.page-hero {
+  width: 100%;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 29.375rem;
+  padding: 6.875rem 0 6.25rem;
+  margin: -40px 0 0;
+}
+
+@media (max-width: 991px) {
+  .page-hero {
+    padding: 5rem 0 4.375rem;
+    min-height: 26.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-hero {
+    padding: 4.375rem 0 3.75rem;
+    min-height: auto;
+  }
+}
+
+.page-hero__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.page-hero__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(16, 22, 6, 0.5)), color-stop(55%, rgba(16, 22, 6, 0.38)), to(rgba(16, 22, 6, 0.25)));
+  background: linear-gradient(90deg, rgba(16, 22, 6, 0.5) 0%, rgba(16, 22, 6, 0.38) 55%, rgba(16, 22, 6, 0.25) 100%);
+  z-index: 2;
+}
+
+.page-hero__background img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.page-hero__background--plain {
+  background: rgba(16, 22, 6, 0.78);
+}
+
+.page-hero__background::before {
+  content: "";
+  z-index: 3;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translateX(-50vw);
+          transform: translateX(-50vw);
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  background: rgba(255, 255, 255, 0.03);
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  display: block;
+  pointer-events: none;
+}
+
+.page-hero .container, .page-hero .container-xl {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero__wrapper {
+  width: 100%;
+}
+
+.page-hero__content {
+  width: 100%;
+  max-width: 35rem;
+}
+
+.page-hero__title {
+  color: #ffffff;
+  margin: 0;
+}
+
+.page-hero__text {
+  width: 100%;
+  margin: 1.125rem 0 0;
+}
+
+.page-hero__text p {
+  margin: 0.625rem 0 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.page-hero__text p:first-child {
+  margin: 0;
+}
+
+.page-hero__text a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.page-hero__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.875rem;
+  margin: 2.125rem 0 0;
+}
+
+@media (max-width: 767px) {
+  .page-hero__buttons {
+    margin: 1.625rem 0 0;
+    gap: 0.75rem;
+  }
+}
+
+.page-hero__button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.625rem;
+}
+
+.page-hero__buttons .page-hero__button:first-child {
+  background: #ccd264;
+  border: 1px solid #ccd264;
+  color: #232323;
+}
+
+.page-hero__buttons .page-hero__button:first-child:hover {
+  background: transparent;
+  color: #ffffff;
+}
+
+.page-hero__buttons .page-hero__button:not(:first-child) {
+  background: transparent;
+  border: 1px solid #ccd264;
+  color: #ccd264;
+}
+
+.page-hero__buttons .page-hero__button:not(:first-child):hover {
+  background: #ccd264;
+  color: #ffffff;
+}
+
+.page-hero--blur-visible .page-hero__background::before {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
 .two-columns-content {
   width: 100%;
+}
+
+.two-columns-content__item > *:first-child {
+  margin-top: 0;
+}
+
+.two-columns-content__button {
+  margin: 50px 0 0;
 }
 
 .pictures {
