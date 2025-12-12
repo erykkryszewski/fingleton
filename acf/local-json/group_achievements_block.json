@@ -195,18 +195,19 @@
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
                 "id": ""
             },
-            "rows": 2,
-            "default_value": "We like solving problems",
-            "new_lines": "",
+            "default_value": "",
             "maxlength": "",
-            "placeholder": ""
+            "allow_in_bindings": 1,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
         },
         {
             "key": "field_achievements_img_small",
@@ -265,18 +266,19 @@
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "33",
                 "class": "",
                 "id": ""
             },
-            "rows": 3,
             "default_value": "We deliver projects that work",
-            "new_lines": "",
             "maxlength": "",
-            "placeholder": ""
+            "allow_in_bindings": 1,
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": "br"
         },
         {
             "key": "field_achievements_button",
@@ -314,5 +316,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765297568
+    "modified": 1765548723
 }

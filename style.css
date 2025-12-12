@@ -6139,7 +6139,7 @@ h1, .h1, .hero-slider__title, .subpage-hero__title, .two-columns-text__title, .t
 .two-columns-content__item h2,
 .two-columns-content__item h3,
 .two-columns-content__item h4,
-.two-columns-content__item h5, .testimonials__title {
+.two-columns-content__item h5, .achievements__title, .testimonials__title {
   color: #232323;
   font-family: "Raleway", sans-serif;
   font-size: 45px;
@@ -6185,7 +6185,7 @@ h4, .h4, .nav__subtitle {
   font-style: normal;
 }
 
-p, .paragraph, .hero-slider .slick-prev::after, .hero-slider .slick-prev::before, .hero-slider .slick-next::after, .hero-slider .slick-next::before, .timeline__title, .page-hero__text p, .achievements__description p, .achievements__card-text, .nav__items li a {
+p, .paragraph, .hero-slider .slick-prev::after, .hero-slider .slick-prev::before, .hero-slider .slick-next::after, .hero-slider .slick-next::before, .timeline__title, .page-hero__text p, .achievements__description p, .achievements__card-text, .achievements__gallery-text, .nav__items li a {
   font-size: 1.0625rem;
   line-height: 1.65;
   margin: 1.25rem 0 0;
@@ -6194,14 +6194,14 @@ p, .paragraph, .hero-slider .slick-prev::after, .hero-slider .slick-prev::before
   font-style: normal;
 }
 
-p > a, .paragraph > a, .hero-slider .slick-prev::after > a, .hero-slider .slick-prev::before > a, .hero-slider .slick-next::after > a, .hero-slider .slick-next::before > a, .timeline__title > a, .page-hero__text p > a, .achievements__description p > a, .achievements__card-text > a, .nav__items li a > a {
+p > a, .paragraph > a, .hero-slider .slick-prev::after > a, .hero-slider .slick-prev::before > a, .hero-slider .slick-next::after > a, .hero-slider .slick-next::before > a, .timeline__title > a, .page-hero__text p > a, .achievements__description p > a, .achievements__card-text > a, .achievements__gallery-text > a, .nav__items li a > a {
   font-weight: 400;
   text-decoration: underline;
   display: inline-block;
   color: #232323;
 }
 
-p > a:hover, .paragraph > a:hover, .hero-slider .slick-prev::after > a:hover, .hero-slider .slick-prev::before > a:hover, .hero-slider .slick-next::after > a:hover, .hero-slider .slick-next::before > a:hover, .timeline__title > a:hover, .page-hero__text p > a:hover, .achievements__description p > a:hover, .achievements__card-text > a:hover, .nav__items li a > a:hover {
+p > a:hover, .paragraph > a:hover, .hero-slider .slick-prev::after > a:hover, .hero-slider .slick-prev::before > a:hover, .hero-slider .slick-next::after > a:hover, .hero-slider .slick-next::before > a:hover, .timeline__title > a:hover, .page-hero__text p > a:hover, .achievements__description p > a:hover, .achievements__card-text > a:hover, .achievements__gallery-text > a:hover, .nav__items li a > a:hover {
   text-decoration: underline;
   color: #232323;
 }
@@ -8399,17 +8399,17 @@ ul > li, ol > li {
 
 .timeline__top {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   height: 40px;
 }
 
 .timeline__year {
   display: block;
-  font-size: 20px;
+  font-size: 27px;
   font-weight: 700;
   color: #333;
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
 }
 
@@ -8662,17 +8662,17 @@ ul > li, ol > li {
 
 .timeline__top {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   height: 40px;
 }
 
 .timeline__year {
   display: block;
-  font-size: 20px;
+  font-size: 27px;
   font-weight: 700;
   color: #333;
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
 }
 
@@ -9152,7 +9152,13 @@ ul > li, ol > li {
 }
 
 .achievements__title {
-  margin: 0;
+  margin: 60px 0 0;
+}
+
+@media (min-width: 1200px) {
+  .achievements__title {
+    max-width: 450px;
+  }
 }
 
 .achievements__description {
@@ -9338,28 +9344,21 @@ ul > li, ol > li {
 
 .achievements__gallery-text {
   margin: 1.125rem 0 0;
-}
-
-@media (min-width: 992px) {
-  .achievements__gallery-text {
-    margin: 0;
-    padding-left: 2.125rem;
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-}
-
-.achievements__gallery-text p {
-  margin: 0;
+  font-size: 20px;
 }
 
 .achievements__gallery-text strong {
   font-weight: 700;
+}
+
+.achievements__gallery-text span {
+  display: block;
+  font-weight: 700;
+  margin: 0;
+}
+
+.achievements__gallery-text p {
+  margin: 0;
 }
 
 .achievements__column-content {
@@ -9397,7 +9396,7 @@ ul > li, ol > li {
 }
 
 .achievements__button {
-  margin: 1.625rem 0 0;
+  margin: 2.1875rem 0 0;
   -ms-flex-item-align: start;
       align-self: flex-start;
 }

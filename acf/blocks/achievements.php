@@ -41,13 +41,13 @@ $button = get_field('button');
         <?php endif; ?>
       </div>
 
-      <div class="col-12 col-lg-6 offset-lg-1">
+      <div class="col-12 col-lg-7">
         <?php if(!empty($cards)): ?>
           <div class="achievements__cards">
             <?php foreach($cards as $card): ?>
               <div class="achievements__card">
                 <?php if(!empty($card['title'])): ?>
-                  <h4 class="achievements__card-title"><?php echo esc_html($card['title']); ?></h4>
+                  <h3 class="achievements__card-title"><?php echo esc_html($card['title']); ?></h3>
                 <?php endif; ?>
                 
                 <?php if(!empty($card['text'])): ?>
@@ -63,16 +63,16 @@ $button = get_field('button');
     <div class="achievements__gallery">
       
       <div class="row achievements__gallery-row achievements__gallery-row--top">
-        <div class="col-12 col-lg-7">
+        <div class="col-12 col-lg-6">
           <div class="achievements__image-wrapper achievements__image-wrapper--wide">
             <?php echo wp_get_attachment_image($gallery_image_top, 'large', false, ['class' => 'img-fluid']); ?>
           </div>
         </div>
         <div class="col-12 col-lg-5">
            <?php if(!empty($gallery_text_top)): ?>
-              <div class="achievements__gallery-text h3">
-                <?php echo apply_filters('acf_the_content', $gallery_text_top); ?>
-              </div>
+              <h3 class="achievements__gallery-text h3">
+                <?php echo apply_filters('the_title', $gallery_text_top); ?>
+           </h3>
            <?php endif; ?>
         </div>
       </div>
@@ -85,9 +85,9 @@ $button = get_field('button');
             </div>
             
             <?php if(!empty($gallery_text_bottom)): ?>
-              <div class="achievements__gallery-text achievements__gallery-text--bottom h3">
-                <?php echo apply_filters('acf_the_content', $gallery_text_bottom); ?>
-              </div>
+              <h3 class="achievements__gallery-text achievements__gallery-text--bottom">
+                    <?php echo apply_filters('the_title', $gallery_text_bottom); ?>
+                </h3>
             <?php endif; ?>
 
             <?php if(!empty($button)): ?>
