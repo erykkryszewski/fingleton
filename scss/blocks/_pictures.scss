@@ -15,17 +15,15 @@
 
 		@media (min-width: 992px) {
 			grid-template-columns: repeat(5, 1fr);
-			grid-template-rows: 35vh 35vh;
+			grid-template-rows: 300px 300px;
 		}
 
 		@media (max-width: 991px) {
 			grid-template-columns: repeat(2, 1fr);
-			grid-auto-rows: 40vh;
 		}
 
 		@media (max-width: 576px) {
 			grid-template-columns: 1fr;
-			grid-auto-rows: 50vh;
 		}
 	}
 

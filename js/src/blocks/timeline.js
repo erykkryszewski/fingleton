@@ -12,7 +12,8 @@ jQuery(function ($) {
 	timelineSliderElementName.slick({
 		slidesToShow: 4,
 		slidesToScroll: 1,
-		infinite: true,
+		initialSlide: 2,
+		infinite: false,
 		centerMode: true,
 		centerPadding: "150px",
 		arrows: true,
@@ -25,6 +26,7 @@ jQuery(function ($) {
 				settings: {
 					slidesToShow: 3,
 					centerPadding: "100px",
+					initialSlide: 1,
 				},
 			},
 			{
@@ -32,6 +34,7 @@ jQuery(function ($) {
 				settings: {
 					slidesToShow: 2,
 					centerPadding: "100px",
+					initialSlide: 1,
 				},
 			},
 			{
@@ -39,6 +42,7 @@ jQuery(function ($) {
 				settings: {
 					slidesToShow: 1,
 					centerPadding: "40px",
+					initialSlide: 1,
 				},
 			},
 		],
