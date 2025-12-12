@@ -27,20 +27,21 @@
             "label": "Title",
             "name": "title",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "textarea",
             "instructions": "Zaznacz tekst i użyj koloru lub pogrubienia dla wyróżnienia.",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "media_upload": 0,
-            "toolbar": "basic",
             "default_value": "Our <strong>Experiences<\/strong> that speak for themselves",
-            "tabs": "all",
-            "delay": 0
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
         },
         {
             "key": "field_testi_list",
@@ -169,10 +170,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [],
+    "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
+    "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765298802
+    "modified": 1765528684
 }
