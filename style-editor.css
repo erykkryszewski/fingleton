@@ -42,7 +42,7 @@
 }
 
 .editor-styles-wrapper .button:hover {
-  color: #ffffff;
+  color: #fff;
   border: 1px solid #ccd264;
   background: #ccd264;
 }
@@ -166,6 +166,11 @@
   }
 }
 
+.editor-styles-wrapper .container-fluid--grid {
+  padding: 0 15px !important;
+  margin: 0 auto !important;
+}
+
 .editor-styles-wrapper .container-fluid .container {
   max-width: 100% !important;
   padding: 0 !important;
@@ -223,7 +228,7 @@
   width: 5px;
   height: 5px;
   display: block;
-  content: '';
+  content: "";
   background: #6c9346;
   border-radius: 50%;
   top: 10px;
@@ -374,7 +379,8 @@ div.gfield_description {
   }
 }
 
-.editor-styles-wrapper ul > li, .editor-styles-wrapper ol > li {
+.editor-styles-wrapper ul > li,
+.editor-styles-wrapper ol > li {
   list-style: none;
 }
 

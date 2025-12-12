@@ -16,7 +16,7 @@ $list = get_field('list');
       <div class="col-12 col-lg-4">
         <?php if(!empty($title)): ?>
           <div class="testimonials__title-wrapper">
-             <h2 class="testimonials__title"><?php echo apply_filters('acf_the_content', $title); ?></h2>
+             <h2 class="testimonials__title"><?php echo apply_filters('the_title', $title); ?></h2>
           </div>
         <?php endif; ?>
       </div>

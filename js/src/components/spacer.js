@@ -1,11 +1,9 @@
-import $ from 'jquery';
+let spacers = document.querySelectorAll(".spacer");
 
-let spacer = $('.spacer');
-let spacerContainer = $('.spacer').parent();
-
-$(document).ready(function(){
-  if(spacer.length > 0) {
-    spacerContainer.addClass('container-fluid');
-    spacerContainer.removeClass('container');
-  }
+document.addEventListener("DOMContentLoaded", function () {
+	spacers.forEach(function (singleSpacer) {
+		let spacerContainer = singleSpacer.parentElement;
+		spacerContainer.classList.add("container-fluid");
+		spacerContainer.classList.remove("container");
+	});
 });

@@ -8,6 +8,8 @@
 
 	&__title {
 
+		@extend .h1;
+
 		span,
 		strong {
 			color: $theme-color;
@@ -16,7 +18,7 @@
 
 	&__box {
 		background-color: $very-light-gray;
-		padding: rem-calc(60) rem-calc(60) rem-calc(40);
+		padding: 30px 30px 30px 50px;
 		position: relative;
 
 		@media (max-width: 767px) {
@@ -78,6 +80,12 @@
 		gap: 15px;
 		margin-top: rem-calc(20);
 
+		@media (min-width: 1200px) {
+			position: absolute;
+			right: 30px;
+			bottom: 30px;
+		}
+
 		@media (max-width: 767px) {
 			justify-content: flex-start;
 			margin-top: rem-calc(30);
@@ -85,8 +93,8 @@
 	}
 
 	&__arrow {
-		width: rem-calc(50);
-		height: rem-calc(50);
+		width: rem-calc(40);
+		height: rem-calc(40);
 		border-radius: 50%;
 		background: $white;
 		border: none;
@@ -97,7 +105,7 @@
 		transition: all 0.3s ease;
 
 		svg {
-			width: 10px;
+			width: 9px;
 			height: auto;
 
 			path {

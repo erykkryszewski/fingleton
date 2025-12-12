@@ -20,7 +20,7 @@ $right_column_button = get_field('right_column_button');
 
 ?>
 
-<div class="two-columns-content <?php if('true' == $background) { echo 'two-columns-content--background'; }?>">
+<div class="two-columns-content <?php if('true' == $background) { echo 'two-columns-content--background'; }?> <?php if('true' == $left_column_negative_margin) { echo 'two-columns-content--negative-margin'; }?> <?php if('true' == $right_column_negative_margin) { echo 'two-columns-content--negative-margin'; }?>">
   <?php if(!empty($section_id)):?>
     <div class="section-id" id="<?php echo esc_html($section_id);?>"></div>
   <?php endif;?>

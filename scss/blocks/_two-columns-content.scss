@@ -1,5 +1,14 @@
 .two-columns-content {
 	width: 100%;
+	background: $very-light-gray;
+
+	&--negative-margin {
+		padding: 119px 0 0;
+
+		@media (max-width: 1199px) {
+			padding: 0;
+		}
+	}
 
 	&__item {
 
@@ -17,6 +26,14 @@
 		h5 {
 
 			@extend .h1;
+		}
+
+		&--negative-margin {
+			margin-top: -119px;
+
+			@media (max-width: 1199px) {
+				margin-top: 0;
+			}
 		}
 	}
 
