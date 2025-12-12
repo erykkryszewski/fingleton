@@ -91,7 +91,7 @@ $button = get_field('button');
             <?php endif; ?>
 
             <?php if(!empty($button)): ?>
-              <a href="<?php echo esc_url($button['url']); ?>" class="button achievements__button" target="<?php echo esc_attr($button['target'] ? $button['target'] : '_self'); ?>">
+              <a href="<?php echo esc_url($button['url']); ?>" class="button achievements__button hero-slider__button" target="<?php echo esc_attr($button['target'] ? $button['target'] : '_self'); ?>">
                 <?php echo esc_html($button['title']); ?>
               </a>
             <?php endif; ?>

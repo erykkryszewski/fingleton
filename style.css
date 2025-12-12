@@ -8972,9 +8972,14 @@ ul > li, ol > li {
   color: #232323;
 }
 
-.page-hero__buttons .page-hero__button:first-child:hover {
-  background: transparent;
-  color: #fff;
+.page-hero__buttons .page-hero__button:first-child::after {
+  -webkit-filter: brightness(0.3);
+          filter: brightness(0.3);
+}
+
+.page-hero__buttons .page-hero__button:first-child:hover::after {
+  -webkit-filter: brightness(0.3);
+          filter: brightness(0.3);
 }
 
 .page-hero__buttons .page-hero__button:not(:first-child) {
@@ -8985,7 +8990,13 @@ ul > li, ol > li {
 
 .page-hero__buttons .page-hero__button:not(:first-child):hover {
   background: #ccd264;
-  color: #fff;
+  border: 1px solid #ccd264;
+  color: #232323;
+}
+
+.page-hero__buttons .page-hero__button:not(:first-child):hover::after {
+  -webkit-filter: brightness(0.3);
+          filter: brightness(0.3);
 }
 
 .page-hero--blur-visible .page-hero__background::before {
@@ -9024,7 +9035,11 @@ ul > li, ol > li {
 }
 
 .two-columns-content__button {
-  margin: 50px 0 0;
+  margin: 40px 0 0;
+  width: auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .pictures {

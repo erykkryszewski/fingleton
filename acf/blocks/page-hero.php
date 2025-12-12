@@ -47,7 +47,7 @@ $background = get_field('background');
                                     $button_title = $item['button']['title'];
                                     $button_target = $item['button']['target'] ? $item['button']['target'] : '_self';
                                 ?>
-                                <a class="button page-hero__button" href="<?php echo esc_url($button_url); ?>" target="<?php echo esc_attr($button_target); ?>">
+                                <a class="button page-hero__button hero-slider__button" href="<?php echo esc_url($button_url); ?>" target="<?php echo esc_attr($button_target); ?>">
                                     <?php echo esc_html($button_title); ?>
                                 </a>
                             <?php endforeach; ?>

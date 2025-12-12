@@ -134,9 +134,15 @@
 			border: 1px solid $theme-color;
 			color: $text-color;
 
+			&::after {
+				filter: brightness(0.3);
+			}
+
 			&:hover {
-				background: transparent;
-				color: $white;
+
+				&::after {
+					filter: brightness(0.3);
+				}
 			}
 		}
 
@@ -147,7 +153,12 @@
 
 			&:hover {
 				background: $theme-color;
-				color: $white;
+				border: 1px solid $theme-color;
+				color: $text-color;
+
+				&::after {
+					filter: brightness(0.3);
+				}
 			}
 		}
 	}
