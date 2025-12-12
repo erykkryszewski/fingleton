@@ -41,5 +41,9 @@
 		margin: 40px 0 0;
 		width: auto;
 		display: inline-flex;
+
+		@media (max-width: 991px) {
+			margin: 40px 0 40px;
+		}
 	}
 }

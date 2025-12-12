@@ -69,6 +69,18 @@
 		padding: rem-calc(44) rem-calc(44);
 		overflow: hidden;
 
+		&:first-child {
+			background:
+				url("/wp-content/uploads/2025/12/VISION.png") center/contain
+				no-repeat;
+		}
+
+		&:nth-child(2) {
+			background:
+				url("/wp-content/uploads/2025/12/VALUES.png") center/contain
+				no-repeat;
+		}
+
 		@media (max-width: 991px) {
 			padding: rem-calc(34) rem-calc(28);
 		}

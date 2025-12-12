@@ -45,4 +45,12 @@
 	&--contact {
 		margin: 20px 0 50px;
 	}
+
+	&--pictures {
+		margin: 20px 0 0;
+
+		@media (min-width: 1200px) {
+			padding: 0 0 0 130px;
+		}
+	}
 }

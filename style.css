@@ -7337,6 +7337,16 @@ ul > li, ol > li {
   margin: 20px 0 50px;
 }
 
+.animated-words--pictures {
+  margin: 20px 0 0;
+}
+
+@media (min-width: 1200px) {
+  .animated-words--pictures {
+    padding: 0 0 0 130px;
+  }
+}
+
 .projects-filters {
   width: 100%;
 }
@@ -8331,6 +8341,12 @@ ul > li, ol > li {
   opacity: 0.45;
 }
 
+@media (max-width: 991px) {
+  .timeline::before, .timeline::after {
+    width: 30px;
+  }
+}
+
 .timeline::before {
   left: 0;
 }
@@ -8592,6 +8608,12 @@ ul > li, ol > li {
   background-image: -webkit-gradient(linear, left top, right top, from(whitesmoke), color-stop(86%, whitesmoke), color-stop(95%, rgba(245, 245, 245, 0.81)), to(rgba(245, 245, 245, 0)));
   background-image: linear-gradient(90deg, whitesmoke 0%, whitesmoke 86%, rgba(245, 245, 245, 0.81) 95%, rgba(245, 245, 245, 0) 100%);
   opacity: 0.45;
+}
+
+@media (max-width: 991px) {
+  .timeline::before, .timeline::after {
+    width: 30px;
+  }
 }
 
 .timeline::before {
@@ -9042,6 +9064,12 @@ ul > li, ol > li {
   display: inline-flex;
 }
 
+@media (max-width: 991px) {
+  .two-columns-content__button {
+    margin: 40px 0 40px;
+  }
+}
+
 .pictures {
   background: #f8f8f8;
   overflow: hidden;
@@ -9214,6 +9242,14 @@ ul > li, ol > li {
   background: transparent;
   padding: 2.75rem 2.75rem;
   overflow: hidden;
+}
+
+.achievements__card:first-child {
+  background: url("/wp-content/uploads/2025/12/VISION.png") center/contain no-repeat;
+}
+
+.achievements__card:nth-child(2) {
+  background: url("/wp-content/uploads/2025/12/VALUES.png") center/contain no-repeat;
 }
 
 @media (max-width: 991px) {
