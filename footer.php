@@ -27,7 +27,7 @@ $facebook_pixel_code = get_field('facebook_pixel_code', 'options');
 $footer_logo = get_field('footer_logo', 'options');
 $footer_text = get_field('footer_text', 'options');
 $footer_locations = get_field('footer_locations', 'options');
-$footer_image = get_field('footer_image', 'options');
+$footer_logos = get_field('footer_logos', 'options');
 
 $page_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
@@ -52,20 +52,9 @@ $page_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 							<a href="/" class="footer__logo">
 								<?php echo wp_get_attachment_image($footer_logo, 'large', '', ["class" => ""]); ?>
 							</a>
-                            <?php if(!empty($global_social_media)):?>
-								<ul class="social-media footer__social-media">
-									<?php foreach($global_social_media as $key => $item):?>
-										<li>
-											<a href="<?php echo esc_url_raw($item['link']);?>" target="_blank">
-												<?php echo wp_get_attachment_image($item['icon'], 'full', '', ['class' => '']);?>  
-											</a>
-										</li>
-									<?php endforeach;?>
-								</ul>
-							<?php endif;?>
 						</div>
 					</div>
-					<div class="col-12 col-lg-4">
+					<div class="col-12 col-lg-10">
 						<div class="footer__content">
 							<div class="footer__text">
 								<?php echo apply_filters('acf_the_content', $footer_text);?>
@@ -79,25 +68,39 @@ $page_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 									<?php endforeach;?>
 								</ul>
 							<?php endif;?>
-
+							<?php if(!empty($global_social_media)):?>
+								<ul class="social-media footer__social-media">
+									<?php foreach($global_social_media as $key => $item):?>
+										<li>
+											<a href="<?php echo esc_url_raw($item['link']);?>" target="_blank">
+												<?php echo wp_get_attachment_image($item['icon'], 'full', '', ['class' => '']);?>  
+											</a>
+										</li>
+									<?php endforeach;?>
+								</ul>
+							<?php endif;?>
 						</div>
 					</div>
-                    <?php if(!empty($footer_image)):?>
-					<div class="col-12 col-lg-6">
-                        <div class="footer__image">
-                            <?php echo wp_get_attachment_image($footer_image, 'large', '', ["class" => ""]); ?>
-                        </div>
-					</div>
-                    <?php endif;?>
 				</div>
 			</div>
 		</div>
 		<div class="bottom-bar">
 			<div class="container">
-				<div class="bottom-bar__content">
-					<p><?php _e('Copyright', 'fingleton');?> © <?php echo date("Y"); ?> Fingleton White, CRO - 86002</p>
-					<a href="<?php echo $global_terms_and_conditions;?>"><?php _e('Terms and Conditions', 'fingleton');?></a>
-					<a href="<?php echo $global_privacy_policy;?>"><?php _e('Privacy Policy', 'fingleton');?></a>
+				<div class="bottom-bar__wrapper">
+                    <?php if(!empty($footer_logos)):?>
+                    <div class="bottom-bar__images">
+                        <?php foreach($footer_logos as $key => $item):?>
+                            <div class="bottom-bar__logo">
+                                <?php echo wp_get_attachment_image($item['logo'], 'large', '', ['class' => '']);?> 
+                            </div>
+                        <?php endforeach;?>
+                    </div>
+                    <?php endif;?>
+                    <div class="bottom-bar__content">
+                        <p><?php _e('Copyright', 'fingleton');?> © <?php echo date("Y"); ?> Fingleton White, CRO - 86002</p>
+                        <a href="<?php echo $global_terms_and_conditions;?>"><?php _e('Terms and Conditions', 'fingleton');?></a>
+                        <a href="<?php echo $global_privacy_policy;?>"><?php _e('Privacy Policy', 'fingleton');?></a>
+                    </div>
 				</div>
 			</div>
 		</div>

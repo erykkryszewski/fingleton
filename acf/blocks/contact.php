@@ -160,6 +160,7 @@ if (!empty($location_info) && is_array($location_info)) {
                     type="button"
                     class="<?php echo esc_attr($locationButtonClassesString); ?>"
                     data-location-id="<?php echo esc_attr($locationIdString); ?>"
+                    id="<?php echo esc_attr($locationIdString); ?>"
                   >
                     <?php echo esc_html($regionNameString); ?>
                   </button>
