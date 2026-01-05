@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 // $(document).ready(function(){
 //   if($('.projects__slider') && window.matchMedia('(min-width: 768px)').matches) {
@@ -28,7 +28,7 @@ import $ from 'jquery';
 //         }
 //       ]
 //     });
-  
+
 //     $(".slick-prev").text("");
 //     $(".slick-next").text("");
 //     $("ul.slick-dots > li > button").text("");

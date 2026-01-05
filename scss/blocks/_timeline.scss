@@ -1,178 +1,181 @@
 .timeline {
-	position: relative;
-	padding: 0;
-	overflow: hidden;
-	background: $very-light-gray;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    background: $very-light-gray;
 
-	&::before,
-	&::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 150px;
-		z-index: 10;
-		pointer-events: none;
-		background-color: rgba(245, 245, 245, 1);
-		background-image:
- linear-gradient(90deg, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 86%, rgba(245, 245, 245, 0.81) 95%, rgba(245, 245, 245, 0) 100%);
-		opacity: 0.45;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 150px;
+        z-index: 10;
+        pointer-events: none;
+        background-color: rgba(245, 245, 245, 1);
+        background-image: linear-gradient(
+            90deg,
+            rgba(245, 245, 245, 1) 0%,
+            rgba(245, 245, 245, 1) 86%,
+            rgba(245, 245, 245, 0.81) 95%,
+            rgba(245, 245, 245, 0) 100%
+        );
+        opacity: 0.45;
 
-		@media (max-width: 991px) {
-			width: 30px;
-		}
-	}
+        @media (max-width: 991px) {
+            width: 30px;
+        }
+    }
 
-	&::before {
-		left: 0;
-	}
+    &::before {
+        left: 0;
+    }
 
-	&::after {
-		right: 0;
-	}
+    &::after {
+        right: 0;
+    }
 
-	&__wrapper {
-		width: 100%;
-		position: relative;
+    &__wrapper {
+        width: 100%;
+        position: relative;
 
-		&::before {
-			content: "";
-			height: 1px;
-			background: #d1d1d1;
-			display: block;
-			position: absolute;
-			left: 0;
-			right: 0;
-			width: 100%;
-			top: 32px;
-		}
-	}
+        &::before {
+            content: "";
+            height: 1px;
+            background: #d1d1d1;
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            top: 32px;
+        }
+    }
 
-	&__slider {
-		position: static;
+    &__slider {
+        position: static;
 
-		.slick-list {
-			overflow: visible;
-			padding: 0;
-			margin: 0;
-		}
+        .slick-list {
+            overflow: visible;
+            padding: 0;
+            margin: 0;
+        }
 
-		.slick-track {
-			display: flex;
-			align-items: flex-start;
-		}
-	}
+        .slick-track {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
 
-	&__item {
-		padding: 0 15px;
-		position: relative;
-		outline: none;
-		transition: opacity 0.3s ease;
-		opacity: 1;
-	}
+    &__item {
+        padding: 0 15px;
+        position: relative;
+        outline: none;
+        transition: opacity 0.3s ease;
+        opacity: 1;
+    }
 
-	.slick-center .timeline__item {
-		opacity: 1;
-	}
+    .slick-center .timeline__item {
+        opacity: 1;
+    }
 
-	@media (min-width: 1401px) {
+    @media (min-width: 1401px) {
+        .slick-center + .slick-slide .timeline__item {
+            opacity: 1;
+        }
 
-		.slick-center + .slick-slide .timeline__item {
-			opacity: 1;
-		}
+        .slick-slide:has(+ .slick-center) .timeline__item {
+            opacity: 1;
+        }
+    }
 
-		.slick-slide:has(+ .slick-center) .timeline__item {
-			opacity: 1;
-		}
-	}
+    &__top {
+        position: relative;
+        margin-bottom: 60px;
+        height: 40px;
+    }
 
-	&__top {
-		position: relative;
-		margin-bottom: 60px;
-		height: 40px;
-	}
+    &__year {
+        display: block;
+        font-size: 27px;
+        font-weight: 700;
+        color: #333;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
 
-	&__year {
-		display: block;
-		font-size: 27px;
-		font-weight: 700;
-		color: #333;
-		position: absolute;
-		top: 50px;
-		left: 0;
-	}
+    &__dot {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 15px;
+        height: 15px;
+        background-color: #333;
+        border-radius: 50%;
+        z-index: 2;
+        border: 3px solid $white;
+    }
 
-	&__dot {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 15px;
-		height: 15px;
-		background-color: #333;
-		border-radius: 50%;
-		z-index: 2;
-		border: 3px solid $white;
-	}
+    &__image {
+        width: 100%;
+        height: 280px;
+        margin-bottom: 20px;
+        overflow: hidden;
 
-	&__image {
-		width: 100%;
-		height: 280px;
-		margin-bottom: 20px;
-		overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
 
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			display: block;
-		}
-	}
+    &__title {
+        @extend .paragraph;
+        font-weight: 700;
+        margin: 0;
+    }
 
-	&__title {
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        border-radius: 50%;
+        border: none;
+        z-index: 20;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
 
-		@extend .paragraph;
-		font-weight: 700;
-		margin: 0;
-	}
+        svg {
+            width: 27px;
+            height: auto;
+            display: block;
 
-	.slick-arrow {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		width: 50px;
-		height: 50px;
-		background: #fff;
-		border-radius: 50%;
-		border: none;
-		z-index: 20;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		transition: background-color 0.3s ease;
+            path {
+                stroke: #333;
+                stroke-width: 2;
+            }
+        }
 
-		svg {
-			width: 27px;
-			height: auto;
-			display: block;
+        &:hover {
+            background: $theme-color;
+        }
+    }
 
-			path {
-				stroke: #333;
-				stroke-width: 2;
-			}
-		}
+    .slick-prev {
+        left: 30px;
+    }
 
-		&:hover {
-			background: $theme-color;
-		}
-	}
-
-	.slick-prev {
-		left: 30px;
-	}
-
-	.slick-next {
-		right: 30px;
-	}
+    .slick-next {
+        right: 30px;
+    }
 }

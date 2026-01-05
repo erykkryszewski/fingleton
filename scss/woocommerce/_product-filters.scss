@@ -1,80 +1,81 @@
 /* woocommerce custom filtration */
 
 .woocommerce-ordering {
-  margin: 0 0 30px;
+    margin: 0 0 30px;
 }
 
 .product-filters {
-  margin: 30px 0 0;
+    margin: 30px 0 0;
 
-  @media(max-width: 767px) {
-    margin: 30px 0;
-  }
-  
-  form {
-    ul {
-      display: flex;
-      width: 100%;
-      justify-content: flex-start;
-
-      @media(max-width: 767px) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-      }
-
-      li {
-        margin: 0 0 0 15px;
-
-        @media(max-width: 767px) {
-          margin: 15px 0 0;
-        }
-
-        input, select {
-          @media(min-width: 768px) {
-            min-width: 175px;
-          }
-
-          @media(max-width: 767px) {
-            min-width: 275px;
-          }
-        }
-
-        &:first-child {
-          margin: 0;
-        }
-      }
+    @media (max-width: 767px) {
+        margin: 30px 0;
     }
-  }
 
-  &--nav {
-    margin: -10px 0 0 25px;
+    form {
+        ul {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
 
-    li {
-      display: none;
+            @media (max-width: 767px) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+            }
 
-      &.sf-field-search {
-        display: block;
+            li {
+                margin: 0 0 0 15px;
 
-        input {
-          padding: 8px 0 !important;
-          min-height: 30px !important;
+                @media (max-width: 767px) {
+                    margin: 15px 0 0;
+                }
+
+                input,
+                select {
+                    @media (min-width: 768px) {
+                        min-width: 175px;
+                    }
+
+                    @media (max-width: 767px) {
+                        min-width: 275px;
+                    }
+                }
+
+                &:first-child {
+                    margin: 0;
+                }
+            }
         }
-      }
     }
-  }
 
-  &--home {
-    li {
-      &.sf-field-search {
-        input {
-          color: $white !important;
+    &--nav {
+        margin: -10px 0 0 25px;
 
-          &::placeholder {
-            color: $white !important;
-          }
+        li {
+            display: none;
+
+            &.sf-field-search {
+                display: block;
+
+                input {
+                    padding: 8px 0 !important;
+                    min-height: 30px !important;
+                }
+            }
         }
-      }
     }
-  }
+
+    &--home {
+        li {
+            &.sf-field-search {
+                input {
+                    color: $white !important;
+
+                    &::placeholder {
+                        color: $white !important;
+                    }
+                }
+            }
+        }
+    }
 }

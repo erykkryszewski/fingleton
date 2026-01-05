@@ -1,72 +1,75 @@
 .big-image-wyswig-content {
-  width: 100%;
-
-  h1:first-child, h2:first-child, h3:first-child, h4:first-child {
-    @extend .h3;
-    position: relative;
-    padding: 25px 0 0;
-    text-align: left;
-
-    @media(max-width: 575px) {
-      text-align: center;
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 2px;
-      width: 100vw;
-      background: $theme-color;
-      display: block;
-        
-      @media(max-width: 575px) {
-        width: 100%;
-      }
-    }
-  }
-
-  &__image-wrapper {
-    position: relative;
     width: 100%;
-    min-height: 750px;
-    
-    @media(max-width: 2200px) {
-      min-height: 540px;
+
+    h1:first-child,
+    h2:first-child,
+    h3:first-child,
+    h4:first-child {
+        @extend .h3;
+        position: relative;
+        padding: 25px 0 0;
+        text-align: left;
+
+        @media (max-width: 575px) {
+            text-align: center;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 2px;
+            width: 100vw;
+            background: $theme-color;
+            display: block;
+
+            @media (max-width: 575px) {
+                width: 100%;
+            }
+        }
     }
 
-    @media(max-width: 1199px) {
-      min-height: auto;
-      margin: 30px 0 0;
-    }
-  }
+    &__image-wrapper {
+        position: relative;
+        width: 100%;
+        min-height: 750px;
 
-  &__picture {
-    position: absolute;
-    height: 750px;
-    width: 44vw;
-    right: 0;
-    top: 0;
+        @media (max-width: 2200px) {
+            min-height: 540px;
+        }
 
-    @media(max-width: 2200px) {
-      height: 540px;
-      width: 42vw;
-    }
-    
-    @media(max-width: 1199px) {
-      position: static;
-      width: 100%;
-      height: auto;
+        @media (max-width: 1199px) {
+            min-height: auto;
+            margin: 30px 0 0;
+        }
     }
 
-    img {
-      @media(max-width: 1199px) {
-        width: initial;
-        height: auto;
-        max-width: 100%;
-        display: block;
-      }
+    &__picture {
+        position: absolute;
+        height: 750px;
+        width: 44vw;
+        right: 0;
+        top: 0;
+
+        @media (max-width: 2200px) {
+            height: 540px;
+            width: 42vw;
+        }
+
+        @media (max-width: 1199px) {
+            position: static;
+            width: 100%;
+            height: auto;
+        }
+
+        img {
+            @media (max-width: 1199px) {
+                width: initial;
+                height: auto;
+                max-width: 100%;
+                display: block;
+            }
+        }
     }
-  }
 }

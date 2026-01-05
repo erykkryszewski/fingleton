@@ -1,57 +1,59 @@
 .contact-boxes {
-  width: 100%;
+    width: 100%;
 
-  &__item {
-    padding: 10px 10px 50px;
-    border-bottom: 2px solid $theme-color-dark;
-    min-height: 150px;
-  }
-
-  &__title {
-    @extend .h3;
-    position: relative;
-    display: flex;
-
-    &:before {
-      content: '';
-      display: block;
-      margin: 0 20px 0 0;
-      flex-shrink: 0;
+    &__item {
+        padding: 10px 10px 50px;
+        border-bottom: 2px solid $theme-color-dark;
+        min-height: 150px;
     }
 
-    &--phone {
-      &:before {
-        width: 25px;
-        height: 24px;
-        background: url('./images/phone-icon.png') center/contain no-repeat;
-      }
+    &__title {
+        @extend .h3;
+        position: relative;
+        display: flex;
+
+        &:before {
+            content: "";
+            display: block;
+            margin: 0 20px 0 0;
+            flex-shrink: 0;
+        }
+
+        &--phone {
+            &:before {
+                width: 25px;
+                height: 24px;
+                background: url("./images/phone-icon.png") center/contain no-repeat;
+            }
+        }
+
+        &--email {
+            &:before {
+                width: 31px;
+                height: 21px;
+                background: url("./images/mail-icon.png") center/contain no-repeat;
+            }
+        }
+
+        &--adress {
+            &:before {
+                width: 20px;
+                height: 26px;
+                background: url("./images/adress-icon.png") center/contain no-repeat;
+            }
+        }
     }
 
-    &--email {
-      &:before {
-        width: 31px;
-        height: 21px;
-        background: url('./images/mail-icon.png') center/contain no-repeat;
-      }
-    }
+    &__phone,
+    &__email,
+    &__adress p {
+        @extend .h4;
+        color: $theme-color-dark;
+        margin: 15px 0 0;
+        line-height: 1.5;
 
-    &--adress {
-      &:before {
-        width: 20px;
-        height: 26px;
-        background: url('./images/adress-icon.png') center/contain no-repeat;
-      }
+        &:hover {
+            color: $theme-color-dark;
+        }
     }
-  }
-
-  &__phone, &__email, &__adress p {
-    @extend .h4;
-    color: $theme-color-dark;
-    margin: 15px 0 0;
-    line-height: 1.5;
-
-    &:hover {
-      color: $theme-color-dark;
-    }
-  }
 }

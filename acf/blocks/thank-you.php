@@ -13,9 +13,7 @@ $content = get_field('content');
 ?>
 
 <section class="block block-thank-you">
-  <div class="container">
-    <div class="thank-you">
-      <?php echo apply_filters('acf_the_content', $content); ?>
+    <div class="container">
+        <div class="thank-you"><?php echo apply_filters('acf_the_content', $content); ?></div>
     </div>
-  </div>
 </section>

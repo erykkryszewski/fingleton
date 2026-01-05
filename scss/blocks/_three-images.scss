@@ -1,33 +1,33 @@
 .three-images {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-
-  &__column {
     width: 100%;
+    position: relative;
+    z-index: 1;
 
-    &--hidden {
-      display: none;
+    &__column {
+        width: 100%;
+
+        &--hidden {
+            display: none;
+        }
     }
-  }
 
-  &__item {
-    width: 100%;
-    height: rem-calc(240);
-    margin: 30px 0 0;
+    &__item {
+        width: 100%;
+        height: rem-calc(240);
+        margin: 30px 0 0;
 
-    @media(max-width: 991px) {
-      height: rem-calc(300);
+        @media (max-width: 991px) {
+            height: rem-calc(300);
+        }
     }
-  }
 
-  &__link {
-    @extend .paragraph;
-    font-weight: 500;
-    color: $theme-color;
+    &__link {
+        @extend .paragraph;
+        font-weight: 500;
+        color: $theme-color;
 
-    &:hover {
-      color: $theme-color;
+        &:hover {
+            color: $theme-color;
+        }
     }
-  }
 }

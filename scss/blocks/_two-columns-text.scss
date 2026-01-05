@@ -1,13 +1,13 @@
 .two-columns-text {
-  width: 100%;
-  position: relative;
+    width: 100%;
+    position: relative;
 
-  &--background {
-    background: $very-light-gray;
-  }
-  
-  &__title {
-    @extend .h1;
-    margin: 0 0 10px;
-  }
+    &--background {
+        background: $very-light-gray;
+    }
+
+    &__title {
+        @extend .h1;
+        margin: 0 0 10px;
+    }
 }

@@ -1,18 +1,18 @@
 .header {
-  z-index: 20;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  transition: all 250ms ease;
-  max-width: 100vw;
+    z-index: 20;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: all 250ms ease;
+    max-width: 100vw;
 
-  &--subpage {
-    position: relative;
-    margin: 0 0 40px;
-    border-bottom: 1px solid #ebebeb;
-  }
+    &--subpage {
+        position: relative;
+        margin: 0 0 40px;
+        border-bottom: 1px solid #ebebeb;
+    }
 }
 
 // body.admin-bar {

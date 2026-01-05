@@ -15,15 +15,13 @@
  * @version 3.5.0
  */
 
-defined('ABSPATH') || exit;
+defined("ABSPATH") || exit();
 
-if (wc_get_page_id('shop') > 0) :
-
-?>
+if (wc_get_page_id("shop") > 0): ?>
 	<div class="empty-cart">
 		<div class="container-fluid">
 			<div class="empty-cart__content">
-				<h2 class="empty-cart__title"><?php _e('Your cart is empty', 'woocommerce'); ?></h2>
+				<h2 class="empty-cart__title"><?php _e("Your cart is empty", "woocommerce"); ?></h2>
 				<a href="/shop" class="empty-cart__button button">Go shopping</a>
 			</div>
 		</div>

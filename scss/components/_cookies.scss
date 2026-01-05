@@ -1,40 +1,40 @@
 .cookies {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: rem-calc(20) rem-calc(20) rem-calc(25);
-  background: rgba($dark, 0.95);
-  position: fixed;
-  bottom: 0;
-  opacity: 0;
-  transform: scale(1,0);
-  transition: all 350ms ease-in-out;
-  transform-origin: bottom;
-  z-index: 99;
-  pointer-events: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: rem-calc(20) rem-calc(20) rem-calc(25);
+    background: rgba($dark, 0.95);
+    position: fixed;
+    bottom: 0;
+    opacity: 0;
+    transform: scale(1, 0);
+    transition: all 350ms ease-in-out;
+    transform-origin: bottom;
+    z-index: 99;
+    pointer-events: none;
 
-  p {
-    text-align: center;
-    color: $white;
-    font-size: rem-calc(12);
-    margin: 0;
-  }
+    p {
+        text-align: center;
+        color: $white;
+        font-size: rem-calc(12);
+        margin: 0;
+    }
 
-  a {
-    font-weight: 700;
-    text-decoration: underline;
-  }
+    a {
+        font-weight: 700;
+        text-decoration: underline;
+    }
 
-  &__button {
-    margin: rem-calc(15) 0 0;
-  }
+    &__button {
+        margin: rem-calc(15) 0 0;
+    }
 
-  &.show {
-    opacity: 1;
-    transform: scale(1,1);
-    pointer-events: inherit;
-  }
+    &.show {
+        opacity: 1;
+        transform: scale(1, 1);
+        pointer-events: inherit;
+    }
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * ACF Block: Inner Blocks Test
@@ -13,16 +13,16 @@ $title = get_field('title');
 ?>
 
 <div class="inner-blocks-test">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h2><?php echo esc_html($title);?></h2>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2><?php echo esc_html($title); ?></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <InnerBlocks />
+            </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <InnerBlocks/>
-      </div>
-    </div>
-  </div>
 </div>

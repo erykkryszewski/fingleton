@@ -1,111 +1,113 @@
 .vouchers-form {
-  width: 100%;
+    width: 100%;
 
-  &__form {
-    form {
-      /* overwrite gravity styles */
-      .gform_wrapper {
-        margin: 0;
-      }
-
-      .gform_body {
-        > .gform_fields {
-          display: block !important;
-          grid-gap: 0 !important;
-          
-          > .gfield {
-            margin: rem-calc(20) 0 0 !important;
-            padding: 0 !important;
-            width: 100%;
-
-            &:first-child {
-              margin: 0 !important;
+    &__form {
+        form {
+            /* overwrite gravity styles */
+            .gform_wrapper {
+                margin: 0;
             }
 
-            .gfield_label {
-              font-size: rem-calc(14);
-              font-family: $font-primary;
-              font-weight: 700;
-              text-transform: initial;
-            }
+            .gform_body {
+                > .gform_fields {
+                    display: block !important;
+                    grid-gap: 0 !important;
 
-            p {
-              a {
-                color: $theme-color;
-                text-decoration: underline;
-              }
-            }
+                    > .gfield {
+                        margin: rem-calc(20) 0 0 !important;
+                        padding: 0 !important;
+                        width: 100%;
 
-            > div {
-              margin: 0 !important;
+                        &:first-child {
+                            margin: 0 !important;
+                        }
 
-              &.ginput_recaptcha {
-                margin: rem-calc(10) 0 0 !important;
-              }
+                        .gfield_label {
+                            font-size: rem-calc(14);
+                            font-family: $font-primary;
+                            font-weight: 700;
+                            text-transform: initial;
+                        }
 
-              input, select, textarea {
-                width: 100% !important;
-              }
+                        p {
+                            a {
+                                color: $theme-color;
+                                text-decoration: underline;
+                            }
+                        }
 
-              textarea {
-                height: auto;
-              }
-            }
+                        > div {
+                            margin: 0 !important;
 
-            .gfield_radio {
-              width: 100% !important;
-              display: flex !important;
-              margin: 0 0 rem-calc(-15) !important;
+                            &.ginput_recaptcha {
+                                margin: rem-calc(10) 0 0 !important;
+                            }
 
-              @media(max-width: 641px) {
-                flex-direction: column;
-              }
+                            input,
+                            select,
+                            textarea {
+                                width: 100% !important;
+                            }
 
-              > div {
-                margin: 0 0 0 rem-calc(35) !important;
-                display: flex;
-                align-items: center;
-                cursor: pointer;
-                  
-                @media(max-width: 641px) {
-                  margin: 0 !important; 
+                            textarea {
+                                height: auto;
+                            }
+                        }
+
+                        .gfield_radio {
+                            width: 100% !important;
+                            display: flex !important;
+                            margin: 0 0 rem-calc(-15) !important;
+
+                            @media (max-width: 641px) {
+                                flex-direction: column;
+                            }
+
+                            > div {
+                                margin: 0 0 0 rem-calc(35) !important;
+                                display: flex;
+                                align-items: center;
+                                cursor: pointer;
+
+                                @media (max-width: 641px) {
+                                    margin: 0 !important;
+                                }
+
+                                &:first-child {
+                                    margin: 0 0 0 rem-calc(-5) !important;
+                                }
+
+                                input {
+                                    margin: 0 !important;
+                                }
+
+                                .gfield_label {
+                                    margin: 0 !important;
+                                }
+                            }
+                        }
+
+                        .ginput_total {
+                            @extend .h3;
+                        }
+                    }
                 }
-
-                &:first-child {
-                  margin: 0 0 0 rem-calc(-5) !important; 
-                }
-
-                input {
-                  margin: 0 !important;
-                }
-
-                .gfield_label {
-                  margin: 0 !important;
-                }
-              }
             }
 
-            .ginput_total {
-              @extend .h3;
+            .gform_footer {
+                margin: 0 !important;
+                padding: 0 !important;
+                text-align: center;
+
+                input[type="submit"] {
+                    margin: rem-calc(20) 0 0 !important;
+                    @extend .button;
+
+                    @media (max-width: 991px) {
+                        width: auto !important;
+                    }
+                }
             }
-          }
         }
-      }
-
-      .gform_footer {
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center;
-
-        input[type="submit"] {
-          margin: rem-calc(20) 0 0 !important;
-          @extend .button;   
-          
-          @media(max-width: 991px) {
-            width: auto !important;
-          }
-        }
-      }
     }
-  }
 }

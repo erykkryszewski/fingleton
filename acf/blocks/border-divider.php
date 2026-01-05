@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * ACF Block: Border divider
@@ -12,4 +12,4 @@ $direction = get_field('direction');
 
 ?>
 
-<div class="border-divider border-divider--<?php echo esc_html($direction);?>"></div>
+<div class="border-divider border-divider--<?php echo esc_html($direction); ?>"></div>

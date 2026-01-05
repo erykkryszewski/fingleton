@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * This file contains sidebar
@@ -9,6 +9,4 @@
 
 ?>
 
-<div>
-  <?php dynamic_sidebar('fingleton-sidebar'); ?>
-</div>
+<div><?php dynamic_sidebar('fingleton-sidebar'); ?></div>

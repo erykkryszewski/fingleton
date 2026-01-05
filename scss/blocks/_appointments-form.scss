@@ -1,193 +1,204 @@
 .appointments-form {
-  width: 100%;
+    width: 100%;
 
-  &__form {
-    form {
-      /* overwrite gravity styles */
-      .gform_wrapper {
-        margin: 0;
-      }
-
-      .gform_body {
-        > .gform_fields {
-          display: block !important;
-          grid-gap: 0 !important;
-          
-          > .gfield {
-            margin: rem-calc(20) 0 0 !important;
-            padding: 0 !important;
-            width: 100%;
-
-            &:first-child {
-              margin: 0 !important;
+    &__form {
+        form {
+            /* overwrite gravity styles */
+            .gform_wrapper {
+                margin: 0;
             }
 
-            .gfield_label {
-              font-size: rem-calc(14);
-              font-family: $font-primary;
-              font-weight: 700;
-              text-transform: initial;
+            .gform_body {
+                > .gform_fields {
+                    display: block !important;
+                    grid-gap: 0 !important;
+
+                    > .gfield {
+                        margin: rem-calc(20) 0 0 !important;
+                        padding: 0 !important;
+                        width: 100%;
+
+                        &:first-child {
+                            margin: 0 !important;
+                        }
+
+                        .gfield_label {
+                            font-size: rem-calc(14);
+                            font-family: $font-primary;
+                            font-weight: 700;
+                            text-transform: initial;
+                        }
+
+                        p {
+                            a {
+                                color: $theme-color;
+                                text-decoration: underline;
+                            }
+                        }
+
+                        > div {
+                            margin: 0 !important;
+
+                            &.ginput_recaptcha {
+                                margin: rem-calc(10) 0 0 !important;
+                            }
+
+                            input,
+                            select,
+                            textarea {
+                                width: 100% !important;
+                            }
+
+                            textarea {
+                                height: auto;
+                            }
+                        }
+
+                        .gfield_radio {
+                            width: 100% !important;
+                            display: flex !important;
+                            margin: 0 0 rem-calc(-15) !important;
+
+                            @media (max-width: 641px) {
+                                flex-direction: column;
+                            }
+
+                            > li {
+                                margin: 0 0 0 rem-calc(25) !important;
+
+                                @media (max-width: 641px) {
+                                    margin: 0 !important;
+                                }
+
+                                &:first-child {
+                                    margin: 0 !important;
+                                }
+
+                                input {
+                                    margin: 0 !important;
+                                }
+
+                                .gfield_label {
+                                    margin: rem-calc(0) 0 0 rem-calc(5) !important;
+                                }
+                            }
+                        }
+
+                        .ginput_total {
+                            @extend .h3;
+                        }
+                    }
+                }
             }
 
-            p {
-              a {
-                color: $theme-color;
-                text-decoration: underline;
-              }
-            }
-
-            > div {
-              margin: 0 !important;
-
-              &.ginput_recaptcha {
-                margin: rem-calc(10) 0 0 !important;
-              }
-
-              input, select, textarea {
+            #gappointments_calendar {
                 width: 100% !important;
-              }
-
-              textarea {
-                height: auto;
-              }
+                margin: rem-calc(10) 0 0 !important;
             }
 
-            .gfield_radio {
-              width: 100% !important;
-              display: flex !important;
-              margin: 0 0 rem-calc(-15) !important;
-
-              @media(max-width: 641px) {
-                flex-direction: column;
-              }
-
-              > li {
-                margin: 0 0 0 rem-calc(25) !important;
-                  
-                @media(max-width: 641px) {
-                  margin: 0 !important; 
-                }
-
-                &:first-child {
-                  margin: 0 !important; 
-                }
-
-                input {
-                  margin: 0 !important;
-                }
-
-                .gfield_label {
-                  margin: rem-calc(0) 0 0 rem-calc(5) !important;
-                }
-              }
+            .ginput_appointment_cost.ginput_product_price {
+                font-size: rem-calc(20);
+                font-family: $font-primary;
+                margin: rem-calc(5) 0 0;
+                font-weight: 700;
+                text-transform: initial;
+                color: $dark;
+                display: inline-block;
             }
 
-            .ginput_total {
-              @extend .h3;
+            .gform_footer {
+                margin: 0 !important;
+                padding: 0 !important;
+                text-align: center;
+
+                input[type="submit"] {
+                    margin: rem-calc(20) 0 0 !important;
+                    @extend .button;
+
+                    @media (max-width: 991px) {
+                        width: auto !important;
+                    }
+                }
             }
-          }
+
+            /* overwrite styles from calendar */
+
+            /* form hero */
+            .ga_appointments_calendar_header,
+            .table_fixed thead,
+            .table_fixed thead tr th {
+                background: $theme-color !important;
+                color: $dark;
+            }
+
+            /* form body fields */
+            #service-working-days {
+                .day_unavailable,
+                .day_available,
+                .ga_day_future,
+                .ga_day_past {
+                    background: $very-light-gray !important;
+                }
+            }
+
+            /* day selection */
+            .ga_wrapper_small .ga_monthly_schedule_wrapper td.ga_today span,
+            .ga_wrapper_medium .ga_monthly_schedule_wrapper td.ga_today span,
+            .ga_wrapper_large .ga_monthly_schedule_wrapper td.ga_today span {
+                border: 2px solid $theme-color !important;
+            }
+
+            .ga_wrapper_small .ga_monthly_schedule_wrapper td.day_available:hover span,
+            .ga_wrapper_small .ga_monthly_schedule_wrapper td.selected span,
+            .ga_wrapper_medium .ga_monthly_schedule_wrapper td.day_available:hover span,
+            .ga_wrapper_medium .ga_monthly_schedule_wrapper td.selected span,
+            .ga_wrapper_large .ga_monthly_schedule_wrapper td.day_available:hover span,
+            .ga_wrapper_large .ga_monthly_schedule_wrapper td.selected span {
+                border: 2px solid $theme-color !important;
+                background: $theme-color !important;
+                color: $white !important;
+            }
+
+            /* hours dropdown */
+            .calendar_time_slots {
+                background: light-gray !important;
+            }
+
+            /* hours dropdown triangle */
+            .ga_monthly_schedule_wrapper td.ga_time_slots.selected:after {
+                border-color: $theme-color transparent transparent transparent !important;
+            }
+
+            /* hours slot */
+            #gappointments_calendar_slots {
+                label.time_selected {
+                    div {
+                        background: $theme-color !important;
+                    }
+                }
+            }
+
+            .slots-title {
+                @extend .h3;
+            }
+
+            .ga_spinner {
+                &:after {
+                    border-color: $theme-color transparent transparent !important;
+                }
+            }
+
+            .gform_ajax_spinner {
+                width: rem-calc(60);
+                position: absolute;
+                margin-top: 1.15rem;
+            }
         }
-      }
 
-      #gappointments_calendar {
-        width: 100% !important;
-        margin: rem-calc(10) 0 0 !important;
-      }
-
-      .ginput_appointment_cost.ginput_product_price {
-        font-size: rem-calc(20);
-        font-family: $font-primary;
-        margin: rem-calc(5) 0 0;
-        font-weight: 700;
-        text-transform: initial;
-        color: $dark;
-        display: inline-block;
-      }
-
-      .gform_footer {
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center;
-
-        input[type="submit"] {
-          margin: rem-calc(20) 0 0 !important;
-          @extend .button;   
-          
-          @media(max-width: 991px) {
-            width: auto !important;
-          }
+        .gform_confirmation_wrapper {
+            margin: rem-calc(30) 0 0;
+            color: $theme-color;
+            font-weight: 700;
         }
-      }
-
-
-
-      /* overwrite styles from calendar */
-
-      /* form hero */
-      .ga_appointments_calendar_header, .table_fixed thead, .table_fixed thead tr th {
-        background: $theme-color !important;
-        color: $dark;
-      }
-
-      /* form body fields */
-      #service-working-days {
-        .day_unavailable, .day_available, .ga_day_future, .ga_day_past {
-          background: $very-light-gray !important;
-        }
-      }
-      
-      /* day selection */
-      .ga_wrapper_small .ga_monthly_schedule_wrapper td.ga_today span, .ga_wrapper_medium .ga_monthly_schedule_wrapper td.ga_today span, .ga_wrapper_large .ga_monthly_schedule_wrapper td.ga_today span {
-        border: 2px solid $theme-color !important;
-      }
-
-      .ga_wrapper_small .ga_monthly_schedule_wrapper td.day_available:hover span, .ga_wrapper_small .ga_monthly_schedule_wrapper td.selected span, .ga_wrapper_medium .ga_monthly_schedule_wrapper td.day_available:hover span, .ga_wrapper_medium .ga_monthly_schedule_wrapper td.selected span, .ga_wrapper_large .ga_monthly_schedule_wrapper td.day_available:hover span, .ga_wrapper_large .ga_monthly_schedule_wrapper td.selected span {
-        border: 2px solid $theme-color !important;
-        background: $theme-color !important;
-        color: $white !important;
-      }
-
-      /* hours dropdown */
-      .calendar_time_slots {
-        background: light-gray !important;
-      }
-
-      /* hours dropdown triangle */
-      .ga_monthly_schedule_wrapper td.ga_time_slots.selected:after {
-        border-color: $theme-color transparent transparent transparent !important;
-      }
-
-      /* hours slot */
-      #gappointments_calendar_slots {
-        label.time_selected {
-          div {
-            background: $theme-color !important;
-          }
-        }
-      }
-
-      .slots-title {
-        @extend .h3;
-      }
-
-      .ga_spinner {
-        &:after {
-          border-color: $theme-color transparent transparent !important
-          
-        }
-      }
-
-      .gform_ajax_spinner {
-        width: rem-calc(60);
-        position: absolute;
-        margin-top: 1.15rem;
-      }
     }
-
-    .gform_confirmation_wrapper {
-      margin: rem-calc(30) 0 0;
-      color: $theme-color;
-      font-weight: 700;
-    }
-  }
 }

@@ -1,54 +1,55 @@
 .checkbox-info {
-  width: 100%;
-  background: $theme-color2;
-  padding: 40px 0;
+    width: 100%;
+    background: $theme-color2;
+    padding: 40px 0;
 
-  @media(max-width: 1199px) {
-    text-align: center;
-  }
-
-  &__title, p {
-    color: $white;
-  }
-
-  &__row {
-    align-items: center;
-  }
-
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-      
-    @media(max-width: 1199px) {
-      margin: 40px 0 0;
-    }
-      
-    @media(max-width: 767px) {
-      flex-direction: column;
-      margin: 10px 0 0;
-    }
-  }
-
-  &__item {
-    padding: 15px 40px;
-    min-width: 225px;
-    text-align: center;
-
-    @media(max-width: 767px) {
-      padding: 40px 15px;
+    @media (max-width: 1199px) {
+        text-align: center;
     }
 
-    &:nth-child(2) {
-      border-left: 1px solid #587989;
-      border-right: 1px solid #587989;
-              
-      @media(max-width: 767px) {
-        border-left: none;
-        border-right: none;
-        border-top: 1px solid #587989;
-        border-bottom: 1px solid #587989;
-      }
+    &__title,
+    p {
+        color: $white;
     }
-  }
+
+    &__row {
+        align-items: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 1199px) {
+            margin: 40px 0 0;
+        }
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            margin: 10px 0 0;
+        }
+    }
+
+    &__item {
+        padding: 15px 40px;
+        min-width: 225px;
+        text-align: center;
+
+        @media (max-width: 767px) {
+            padding: 40px 15px;
+        }
+
+        &:nth-child(2) {
+            border-left: 1px solid #587989;
+            border-right: 1px solid #587989;
+
+            @media (max-width: 767px) {
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid #587989;
+                border-bottom: 1px solid #587989;
+            }
+        }
+    }
 }

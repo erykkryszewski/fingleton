@@ -6,7 +6,7 @@
  * @license GPL-3.0-or-later
  */
 
-add_action('acf/init', 'fingleton_acf_init');
+add_action("acf/init", "fingleton_acf_init");
 /**
  * Registers ACF blocks for Gutenberg
  *
@@ -14,59 +14,52 @@ add_action('acf/init', 'fingleton_acf_init');
  * @return void
  */
 function fingleton_acf_init() {
+    add_filter(
+        "block_categories",
+        function ($categories, $post) {
+            return array_merge($categories, [
+                [
+                    "slug" => "fingleton",
+                    "title" => __("fingleton Blocks", "fingleton"),
+                ],
+            ]);
+        },
+        10,
+        2,
+    );
 
-	add_filter('block_categories', function($categories, $post) {
-		return array_merge(
-			$categories,
-			array(
-				array(
-					'slug' => 'fingleton',
-					'title' => __('fingleton Blocks', 'fingleton'),
-				),
-			)
-		);
-	}, 10, 2);
+    // Check if function exists.
+    if (function_exists("acf_register_block")) {
+        $blocks = require get_stylesheet_directory() . "/acf/blocks.php";
 
-	// Check if function exists.
-	if (function_exists('acf_register_block')) {
+        if (is_array($blocks)) {
+            foreach ($blocks as $name => $params) {
+                $params = array_merge($params, [
+                    "name" => $name,
+                    "mode" => "edit",
+                    "render_callback" => "fingleton_block_render_callback",
+                ]);
 
-		$blocks = require get_stylesheet_directory() . '/acf/blocks.php';
+                // Register a block.
+                acf_register_block($params);
+            }
+        }
 
-		if (is_array($blocks)) {
-			foreach ($blocks as $name => $params) {
-				$params = array_merge(
-					$params,
-					[
-						'name'            => $name,
-						'mode'            => 'edit',
-						'render_callback' => 'fingleton_block_render_callback',
-					]
-				);
+        function fingleton_block_render_callback($block) {
+            $slug = str_replace("acf/", "", $block["name"]);
 
-				// Register a block.
-				acf_register_block($params);
-			}
-		}
+            if (file_exists(get_theme_file_path("/acf/blocks/{$slug}.php"))) {
+                include get_theme_file_path("/acf/blocks/{$slug}.php");
+            }
+        }
+    }
 
-		function fingleton_block_render_callback($block) {
-			$slug = str_replace('acf/', '', $block['name']);
-
-			if(file_exists(get_theme_file_path("/acf/blocks/{$slug}.php"))) {
-				include(get_theme_file_path("/acf/blocks/{$slug}.php"));
-			}
-		}
-
-	}
-
-	if (function_exists('acf_add_options_page')) {
-		acf_add_options_page(
-			[
-				'page_title'  => 'Fingleton Theme Settings',
-				'parent_slug' => 'themes.php',
-			]
-		);
-	}
-
+    if (function_exists("acf_add_options_page")) {
+        acf_add_options_page([
+            "page_title" => "Fingleton Theme Settings",
+            "parent_slug" => "themes.php",
+        ]);
+    }
 }
 
 /**
@@ -76,17 +69,23 @@ function fingleton_acf_init() {
  * @param  string $block Block data.
  * @return void
  */
-add_filter('render_block', function($block_content, $block) {
+add_filter(
+    "render_block",
+    function ($block_content, $block) {
+        if (preg_match("~^core/|core-embed/~", $block["blockName"])) {
+            $block_content = sprintf(
+                '<div class="default-block container">%s</div>',
+                $block_content,
+            );
+        }
 
-	if (preg_match('~^core/|core-embed/~', $block['blockName'])) {
-		 $block_content = sprintf('<div class="default-block container">%s</div>', $block_content);
-	}
+        return $block_content;
+    },
+    PHP_INT_MAX - 1,
+    2,
+);
 
-	return $block_content;
-
-}, PHP_INT_MAX - 1, 2);
-
-add_filter('acf/settings/save_json', 'fingleton_acf_json_save_point');
+add_filter("acf/settings/save_json", "fingleton_acf_json_save_point");
 /**
  * Sets the ACF JSON saving point
  *
@@ -95,10 +94,10 @@ add_filter('acf/settings/save_json', 'fingleton_acf_json_save_point');
  * @return string       Saving point path.
  */
 function fingleton_acf_json_save_point($path) {
-	return get_stylesheet_directory() . '/acf/local-json';
+    return get_stylesheet_directory() . "/acf/local-json";
 }
 
-add_filter('acf/settings/load_json', 'fingleton_acf_json_load_point');
+add_filter("acf/settings/load_json", "fingleton_acf_json_load_point");
 /**
  * Sets the ACF JSON loading point
  *
@@ -107,7 +106,7 @@ add_filter('acf/settings/load_json', 'fingleton_acf_json_load_point');
  * @return array        JSON loading points.
  */
 function fingleton_acf_json_load_point($paths) {
-	unset($paths[0]);
-	$paths[] = get_stylesheet_directory() . '/acf/local-json';
-	return $paths;
+    unset($paths[0]);
+    $paths[] = get_stylesheet_directory() . "/acf/local-json";
+    return $paths;
 }

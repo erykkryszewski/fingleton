@@ -1,19 +1,19 @@
 .cta {
-  width: 100%;
-  position: relative;
-  z-index: 2;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 
-  &__row {
-    align-items: center
-  }
-
-  p {
-    @extend .h4;
-  }
-
-  &__button {
-    @media(max-width: 767px) {
-      margin: 25px 0 0;
+    &__row {
+        align-items: center;
     }
-  }
+
+    p {
+        @extend .h4;
+    }
+
+    &__button {
+        @media (max-width: 767px) {
+            margin: 25px 0 0;
+        }
+    }
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * ACF Block: Centered text
@@ -13,7 +13,5 @@ $text = get_field('text');
 ?>
 
 <div class="centered-text">
-  <div class="container">
-    <?php echo apply_filters('acf_the_content', $text);?>
-  </div>
+    <div class="container"><?php echo apply_filters('acf_the_content', $text); ?></div>
 </div>

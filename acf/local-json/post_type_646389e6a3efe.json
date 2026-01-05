@@ -61,12 +61,7 @@
     "rename_capabilities": false,
     "singular_capability_name": "post",
     "plural_capability_name": "posts",
-    "supports": [
-        "title",
-        "editor",
-        "excerpt",
-        "thumbnail"
-    ],
+    "supports": ["title", "editor", "excerpt", "thumbnail"],
     "taxonomies": "",
     "has_archive": true,
     "has_archive_slug": "projects",

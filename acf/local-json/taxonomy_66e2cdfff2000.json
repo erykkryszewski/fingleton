@@ -4,9 +4,7 @@
     "menu_order": 0,
     "active": true,
     "taxonomy": "project-type",
-    "object_type": [
-        "projects"
-    ],
+    "object_type": ["projects"],
     "advanced_configuration": 0,
     "import_source": "",
     "import_date": "",

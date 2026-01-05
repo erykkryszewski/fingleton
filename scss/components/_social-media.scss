@@ -1,29 +1,29 @@
 .social-media {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
 
-  // &:before {
-  //   content: 'Follow Us:';
-  // }
+    // &:before {
+    //   content: 'Follow Us:';
+    // }
 
-  li {
-    a {
-      width: rem-calc(23);
-      height: rem-calc(23);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+    li {
+        a {
+            width: rem-calc(23);
+            height: rem-calc(23);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
 
-      img {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-      }
+            img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+            }
+        }
     }
-  }
 }

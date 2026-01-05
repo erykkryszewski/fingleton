@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * ACF Block: Wyswig content
@@ -12,12 +12,10 @@ $content = get_field('content');
 
 ?>
 
-<?php if(!empty($content)):?>
-  <div class="wyswig-content">
-    <div class="container">
-      <div class="wyswig-content__text">
-        <?php echo apply_filters('the_title', $content);?>
-      </div>
+<?php if(!empty($content)): ?>
+    <div class="wyswig-content">
+        <div class="container">
+            <div class="wyswig-content__text"><?php echo apply_filters('the_title', $content); ?></div>
+        </div>
     </div>
-  </div>
-<?php endif;?>
+<?php endif; ?>

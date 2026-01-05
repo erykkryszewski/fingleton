@@ -1,20 +1,18 @@
 .spacer {
-	width: 100%;
+    width: 100%;
 
-	&--background {
-		background: $very-light-gray;
-	}
+    &--background {
+        background: $very-light-gray;
+    }
 
-	&--small {
+    &--small {
+        @media (max-width: 1199px) {
+            height: 25px !important;
+        }
+    }
 
-		@media (max-width: 1199px) {
-			height: 25px !important;
-		}
-	}
-
-	@media (max-width: 1199px) {
-
-		/* important is necessary to prevent inline styles */
-		height: 50px !important;
-	}
+    @media (max-width: 1199px) {
+        /* important is necessary to prevent inline styles */
+        height: 50px !important;
+    }
 }

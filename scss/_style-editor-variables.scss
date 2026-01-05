@@ -1,22 +1,22 @@
-$font-primary: 'Raleway', sans-serif;
+$font-primary: "Raleway", sans-serif;
 
 $fonts: (
-	primary: $font-primary,
+    primary: $font-primary,
 );
 
 $colors: (
-	black: #000,
-	white: #fff,
+    black: #000,
+    white: #fff,
 );
 
 $breakpoints: (
-	xs: 480,
-	sm: 576,
-	md: 768,
-	lg: 992,
-	xl: 1366,
+    xs: 480,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1366,
 );
 
 $container-width: rem-calc(1120);
-$content-width:   rem-calc(730);
+$content-width: rem-calc(730);
 $alignwide-width: $container-width;

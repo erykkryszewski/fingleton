@@ -1,125 +1,124 @@
 .testimonials {
-	padding: rem-calc(80) 0;
-	position: relative;
+    padding: rem-calc(80) 0;
+    position: relative;
 
-	@media (max-width: 991px) {
-		padding: rem-calc(40) 0;
-	}
+    @media (max-width: 991px) {
+        padding: rem-calc(40) 0;
+    }
 
-	&__title {
+    &__title {
+        @extend .h1;
 
-		@extend .h1;
+        span,
+        strong {
+            color: $theme-color;
+        }
+    }
 
-		span,
-		strong {
-			color: $theme-color;
-		}
-	}
+    &__box {
+        background-color: $very-light-gray;
+        padding: 30px 30px 30px 50px;
+        position: relative;
 
-	&__box {
-		background-color: $very-light-gray;
-		padding: 30px 30px 30px 50px;
-		position: relative;
+        @media (max-width: 767px) {
+            padding: rem-calc(30);
+            margin-top: rem-calc(30);
+        }
+    }
 
-		@media (max-width: 767px) {
-			padding: rem-calc(30);
-			margin-top: rem-calc(30);
-		}
-	}
+    &__slider {
+        margin-bottom: rem-calc(30);
+    }
 
-	&__slider {
-		margin-bottom: rem-calc(30);
-	}
+    &__quote {
+        font-size: rem-calc(18);
+        line-height: 1.6;
+        color: lighten($text-color, 10%);
+        margin-bottom: rem-calc(40);
+        font-weight: 400;
+    }
 
-	&__quote {
-		font-size: rem-calc(18);
-		line-height: 1.6;
-		color: lighten($text-color, 10%);
-		margin-bottom: rem-calc(40);
-		font-weight: 400;
-	}
+    &__author {
+        display: flex;
+        align-items: center;
 
-	&__author {
-		display: flex;
-		align-items: center;
+        &-image {
+            width: rem-calc(60);
+            height: rem-calc(60);
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: rem-calc(20);
+            flex-shrink: 0;
 
-		&-image {
-			width: rem-calc(60);
-			height: rem-calc(60);
-			border-radius: 50%;
-			overflow: hidden;
-			margin-right: rem-calc(20);
-			flex-shrink: 0;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
 
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-		}
+        &-name {
+            font-size: rem-calc(16);
+            font-weight: 700;
+            color: $text-color;
+            line-height: 1.2;
+        }
 
-		&-name {
-			font-size: rem-calc(16);
-			font-weight: 700;
-			color: $text-color;
-			line-height: 1.2;
-		}
+        &-role {
+            font-size: rem-calc(12);
+            text-transform: uppercase;
+            color: #999;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+    }
 
-		&-role {
-			font-size: rem-calc(12);
-			text-transform: uppercase;
-			color: #999;
-			font-weight: 600;
-			margin-top: 2px;
-		}
-	}
+    &__controls {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-top: rem-calc(20);
 
-	&__controls {
-		display: flex;
-		justify-content: flex-end;
-		gap: 15px;
-		margin-top: rem-calc(20);
+        @media (min-width: 1200px) {
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+        }
 
-		@media (min-width: 1200px) {
-			position: absolute;
-			right: 30px;
-			bottom: 30px;
-		}
+        @media (max-width: 767px) {
+            justify-content: flex-start;
+            margin-top: rem-calc(30);
+        }
+    }
 
-		@media (max-width: 767px) {
-			justify-content: flex-start;
-			margin-top: rem-calc(30);
-		}
-	}
+    &__arrow {
+        width: rem-calc(40);
+        height: rem-calc(40);
+        border-radius: 50%;
+        background: $white;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
 
-	&__arrow {
-		width: rem-calc(40);
-		height: rem-calc(40);
-		border-radius: 50%;
-		background: $white;
-		border: none;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		transition: all 0.3s ease;
+        svg {
+            width: 9px;
+            height: auto;
 
-		svg {
-			width: 9px;
-			height: auto;
+            path {
+                stroke: $text-color;
+                transition: stroke 0.3s ease;
+            }
+        }
 
-			path {
-				stroke: $text-color;
-				transition: stroke 0.3s ease;
-			}
-		}
+        &:hover {
+            background: $theme-color;
 
-		&:hover {
-			background: $theme-color;
-
-			svg path {
-				stroke: $white;
-			}
-		}
-	}
+            svg path {
+                stroke: $white;
+            }
+        }
+    }
 }

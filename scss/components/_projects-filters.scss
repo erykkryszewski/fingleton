@@ -1,33 +1,33 @@
 .projects-filters {
-  width: 100%;
-
-  @media(max-width: 1199px) {
-    margin: 20px 0 0;
-  }
-
-  &__wrapper {
     width: 100%;
 
-    form {
-      width: 100%;
-
-      ul {
-        width: 100%;
-        display: flex;
-        gap: 30px;
-
-        @media(max-width: 767px) {
-          flex-direction: column;
-        }
-
-        li {
-          select {
-            @media(max-width: 767px) {
-              max-width: 250px;
-            }
-          }
-        }
-      }
+    @media (max-width: 1199px) {
+        margin: 20px 0 0;
     }
-  }
+
+    &__wrapper {
+        width: 100%;
+
+        form {
+            width: 100%;
+
+            ul {
+                width: 100%;
+                display: flex;
+                gap: 30px;
+
+                @media (max-width: 767px) {
+                    flex-direction: column;
+                }
+
+                li {
+                    select {
+                        @media (max-width: 767px) {
+                            max-width: 250px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

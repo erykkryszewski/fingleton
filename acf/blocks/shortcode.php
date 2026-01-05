@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * ACF Block: Shortcode
@@ -12,6 +12,4 @@ $shortcode = get_field('shortcode');
 
 ?>
 
-<div class="container">
-  <?php echo do_shortcode($shortcode);?>
-</div>
+<div class="container"><?php echo do_shortcode($shortcode); ?></div>

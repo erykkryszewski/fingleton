@@ -8,33 +8,30 @@ import "@fancyapps/fancybox";
 // import 'parallax-js';
 
 document.addEventListener("DOMContentLoaded", function () {
-	const themeImages = document.querySelectorAll('img[sizes^="auto,"]');
-	themeImages.forEach(function (img) {
-		img.sizes = img.sizes.replace(/^auto,\s*/, "");
-	});
+    const themeImages = document.querySelectorAll('img[sizes^="auto,"]');
+    themeImages.forEach(function (img) {
+        img.sizes = img.sizes.replace(/^auto,\s*/, "");
+    });
 });
 
 AOS.init();
 
 $(window).on("load", function () {
-	AOS.refresh();
-	setTimeout(function () {
-		$(".preloader").fadeOut();
-	}, 100);
+    AOS.refresh();
+    setTimeout(function () {
+        $(".preloader").fadeOut();
+    }, 100);
 
-	if (
-		$(".subpage-hero").length > 0 &&
-		window.location.href.indexOf("sfid") < 0
-	) {
-		$("html, body")
-			.delay(0)
-			.animate(
-				{
-					scrollTop: $("#subpage-hero-scroll-to").offset().top,
-				},
-				1000
-			);
-	}
+    if ($(".subpage-hero").length > 0 && window.location.href.indexOf("sfid") < 0) {
+        $("html, body")
+            .delay(0)
+            .animate(
+                {
+                    scrollTop: $("#subpage-hero-scroll-to").offset().top,
+                },
+                1000
+            );
+    }
 });
 
 $("p:empty").remove();

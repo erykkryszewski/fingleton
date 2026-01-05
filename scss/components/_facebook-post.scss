@@ -1,79 +1,79 @@
 .facebook-post {
-  width: 100%;
-  position: relative;
-
-  &__link {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
-    display: block;
-    margin: 0;
-    z-index: 2;
-  }
+    position: relative;
 
-  &__image {
-    width: 100%;
-    height: rem-calc(215);
-  }
+    &__link {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0;
+        z-index: 2;
+    }
 
-  &__profile-info {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    &__image {
+        width: 100%;
+        height: rem-calc(215);
+    }
 
-    > div {
-      &:first-child {
+    &__profile-info {
+        width: 100%;
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: rem-calc(10);
 
-        p {
-          font-size: rem-calc(14);
-          font-weight: 900;
-          color: $black;
-          margin: 0;
+        > div {
+            &:first-child {
+                display: flex;
+                align-items: center;
+                gap: rem-calc(10);
+
+                p {
+                    font-size: rem-calc(14);
+                    font-weight: 900;
+                    color: $black;
+                    margin: 0;
+                }
+
+                span {
+                    display: block;
+                    font-size: rem-calc(12);
+                    font-weight: 700;
+                    color: #9a9ea7;
+                }
+            }
         }
+    }
 
-        span {
-          display: block;
-          font-size: rem-calc(12);
-          font-weight: 700;
-          color: #9a9ea7;
+    &__profile-thumbnail {
+        width: rem-calc(45);
+        height: rem-calc(45);
+        border-radius: 50%;
+        border: 2px solid #266ce3;
+
+        img {
+            border-radius: 50%;
         }
-      }
     }
-  }
 
-  &__profile-thumbnail {
-    width: rem-calc(45);
-    height: rem-calc(45);
-    border-radius: 50%;
-    border: 2px solid #266ce3;
+    &__icon {
+        width: rem-calc(30);
+        height: rem-calc(30);
+        min-width: rem-calc(30);
 
-    img {
-      border-radius: 50%;
+        img {
+            max-width: rem-calc(30);
+        }
     }
-  }
 
-  &__icon {
-    width: rem-calc(30);
-    height: rem-calc(30);
-    min-width: rem-calc(30);
-
-    img {
-      max-width: rem-calc(30);
+    &__content {
+        padding: rem-calc(10) rem-calc(15) rem-calc(15);
+        border-right: 1px solid #efeff0;
+        border-left: 1px solid #efeff0;
+        border-bottom: 1px solid #efeff0;
     }
-  }
-
-  &__content {
-    padding: rem-calc(10) rem-calc(15) rem-calc(15);
-    border-right: 1px solid #efeff0;
-    border-left: 1px solid #efeff0;
-    border-bottom: 1px solid #efeff0;
-  }
 }

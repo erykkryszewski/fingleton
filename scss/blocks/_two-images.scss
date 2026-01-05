@@ -1,29 +1,29 @@
 .two-images {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-
-  @media(max-width: 991px) {
-    flex-direction: column;
-  }
-
-  &--background {
-    background: $very-light-gray;
-  }
-
-  &__picture {
     width: 100%;
-    height: rem-calc(400);
-    
-    @media(max-width: 991px) {
-      /* important is necessary to overwrite inline height, which can be set by user in ACF */
-      height: rem-calc(450) !important;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    @media (max-width: 991px) {
+        flex-direction: column;
     }
-    
-    @media(max-width: 500px) {
-      /* important is necessary to overwrite inline height, which can be set by user in ACF */
-      height: rem-calc(400) !important;
+
+    &--background {
+        background: $very-light-gray;
     }
-  }
+
+    &__picture {
+        width: 100%;
+        height: rem-calc(400);
+
+        @media (max-width: 991px) {
+            /* important is necessary to overwrite inline height, which can be set by user in ACF */
+            height: rem-calc(450) !important;
+        }
+
+        @media (max-width: 500px) {
+            /* important is necessary to overwrite inline height, which can be set by user in ACF */
+            height: rem-calc(400) !important;
+        }
+    }
 }

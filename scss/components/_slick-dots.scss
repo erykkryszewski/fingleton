@@ -1,54 +1,54 @@
 .slick-dots {
-  position: relative;
-  transform: translateX(50%);
-  right: 50%;
-  display: flex;
-  gap: 28px;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
-  bottom: 0;
-
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
     position: relative;
-    font-size: 0;
+    transform: translateX(50%);
+    right: 50%;
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    bottom: 0;
 
-    &::after {
-      content: '';
-      display: block;
-      width: 36px;
-      height: 17px;
-      position: absolute;
-      bottom: -10px;
-      transition: all 300ms ease-in-out;
-      background: url('./images/li-after.png') center/contain no-repeat;
-      opacity: 0;
-    }
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        transition: all 300ms ease-in-out;
+        cursor: pointer;
+        position: relative;
+        font-size: 0;
 
-    button {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: $theme-color-dark;
-      font-size: 0;
-    }
-    
-    &.slick-active {
-      &::after {
-        opacity: 1;
-      }
+        &::after {
+            content: "";
+            display: block;
+            width: 36px;
+            height: 17px;
+            position: absolute;
+            bottom: -10px;
+            transition: all 300ms ease-in-out;
+            background: url("./images/li-after.png") center/contain no-repeat;
+            opacity: 0;
+        }
 
-      button {
-        width: 14px;
-        height: 14px;
-      }
+        button {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: $theme-color-dark;
+            font-size: 0;
+        }
+
+        &.slick-active {
+            &::after {
+                opacity: 1;
+            }
+
+            button {
+                width: 14px;
+                height: 14px;
+            }
+        }
     }
-  }
 }

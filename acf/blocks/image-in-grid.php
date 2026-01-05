@@ -14,7 +14,5 @@ $image_height = get_field('image_height');
 ?>
 
 <div class="container">
-  <div class="image-in-grid" style="<?php if(!empty($image_height)) { echo 'height:'.esc_html($image_height).'px'; }?>">
-    <?php echo wp_get_attachment_image($image, 'full', '', ["class" => "object-fit-cover"]); ?>
-  </div>
+    <div class="image-in-grid" style="<?php if(!empty($image_height)) { echo 'height:'.esc_html($image_height).'px'; } ?>"><?php echo wp_get_attachment_image($image, 'full', '', ["class" => "object-fit-cover"]); ?></div>
 </div>
