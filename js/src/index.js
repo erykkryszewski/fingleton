@@ -43,6 +43,7 @@ import "./sections/navigation";
 // import './sections/pay-online';
 // import './sections/projects-archive';
 import "./sections/project";
+import "./sections/footer";
 
 // import './blocks/logos';
 // import './blocks/faq';

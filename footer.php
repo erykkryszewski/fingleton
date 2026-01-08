@@ -94,6 +94,9 @@ $page_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 <div class="bottom-bar__logo">
                                     <?php echo wp_get_attachment_image($item['logo'], 'large', '', ['class' => '']); ?>
                                 </div>
+                                <div class="bottom-bar__logo bottom-bar__logo--color">
+                                    <?php echo wp_get_attachment_image($item['logo_color'], 'large', '', ['class' => '']); ?>
+                                </div>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>

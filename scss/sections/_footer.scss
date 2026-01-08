@@ -5,6 +5,7 @@
     border-top: 1px solid $border-color;
     max-width: 100%;
     overflow: hidden;
+    z-index: 10;
 
     &__row {
         align-items: center;

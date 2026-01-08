@@ -1,7 +1,7 @@
 .bottom-bar {
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: 4;
     background: $theme-color2;
 
     &__wrapper {
@@ -25,8 +25,10 @@
     &__images {
         display: flex;
         width: 100%;
-        gap: 10px;
+        gap: 15px;
         align-items: center;
+        position: relative;
+        overflow: visible;
 
         @media (max-width: 1099px) {
             justify-content: center;
@@ -53,6 +55,40 @@
             margin: 0;
             color: $very-light-gray;
             font-weight: 400;
+        }
+    }
+
+    &__logo {
+        position: relative;
+        z-index: 10;
+
+        &--color {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            display: none;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transform: translate(-50%, -100%);
+            pointer-events: none;
+
+            img,
+            svg {
+                width: 100%;
+                height: auto;
+                max-width: 300px;
+                max-height: 300px;
+                display: block;
+            }
+        }
+
+        &.is-active {
+            + .bottom-bar__logo--color {
+                display: block;
+            }
         }
     }
 }
