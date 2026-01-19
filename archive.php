@@ -1,18 +1,13 @@
 <?php
 
-/**
- * Projects
- *
- * @package fingleton
- * @license GPL-3.0-or-later
- */
-
 get_header();
-
 $projects_hero_title = get_field('projects_hero_title', 'options');
 $projects_hero_text = get_field('projects_hero_text', 'options');
-
 $counter = 0;
+
+$current_url = add_query_arg(NULL, NULL);
+$current_page = isset($_GET['sf_paged']) ? (int) $_GET['sf_paged'] : 1;
+if ($current_page < 1) $current_page = 1;
 
 ?>
 
@@ -28,14 +23,6 @@ $counter = 0;
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <!-- <div class="animated-words">
-                            <div class="animated-words__item animated-words__item--archive animated-words__item--archive-one animated-words__item--one">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/text-our.png" alt="text-our">
-                            </div>
-                            <div class="animated-words__item animated-words__item--archive animated-words__item--archive-two animated-words__item--two">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/text-projects.png" alt="text-projects">
-                            </div>
-                        </div> -->
                         <div class="projects-filters">
                             <div class="container">
                                 <div class="projects-filters__wrapper">
@@ -68,15 +55,15 @@ $counter = 0;
                                     <h3 class="projects__title"><?php echo apply_filters('the_title', get_the_title()); ?></h3>
                                     <p>
                                         <?php
-                            $terms = get_the_terms(get_the_ID(), 'place');
-                            if ($terms && !is_wp_error($terms)) {
-                              $links = array();
-                              foreach ($terms as $term) {
-                                $links[] = '<a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a>';
-                              }
-                              echo '<strong>Areas of work:</strong> ' . implode(', ', $links);
-                            }
-                          ?>
+                                            $terms = get_the_terms(get_the_ID(), 'place');
+                                            if ($terms && !is_wp_error($terms)) {
+                                              $links = array();
+                                              foreach ($terms as $term) {
+                                                $links[] = '<a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a>';
+                                              }
+                                              echo '<strong>Areas of work:</strong> ' . implode(', ', $links);
+                                            }
+                                          ?>
                                     </p>
                                 </div>
                                 <div>
@@ -92,9 +79,27 @@ $counter = 0;
                 </div>
             <?php endif; ?>
         </div>
-        <!-- <div class="projects__load-more">
-            <button class="button projects__button"><?php esc_html_e('Load more', 'fingleton'); ?></button>
-        </div> -->
+
+
+        <?php global $wp_query; if ($wp_query->max_num_pages > 1) : ?>
+        <div class="projects__pagination">
+            <div class="pagination">
+                <?php
+                $base_url = remove_query_arg('sf_paged', $current_url);
+                echo paginate_links(array(
+                    'base' => $base_url . '%_%',
+                    'format' => '?sf_paged=%#%',
+                    'current' => $current_page,
+                    'total' => $wp_query->max_num_pages,
+                    'prev_text' => __('←', 'fingleton'),
+                    'next_text' => __('→', 'fingleton'),
+                    'type' => 'list'
+                ));
+                ?>
+            </div>
+        </div>
+        <?php endif; ?>
+
         <?php wp_reset_postdata(); ?>
         <?php wp_reset_query(); ?>
     </div>

@@ -41,7 +41,7 @@ import "./global/recaptcha";
 import "./sections/header";
 import "./sections/navigation";
 // import './sections/pay-online';
-// import './sections/projects-archive';
+// import "./sections/projects-archive";
 import "./sections/project";
 import "./sections/footer";
 

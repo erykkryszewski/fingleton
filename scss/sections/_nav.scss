@@ -244,6 +244,7 @@
     &__title {
         @extend .h2;
         color: $white;
+        text-align: left;
 
         @media (max-width: 991px) {
             margin: 10px 0 0;
@@ -256,6 +257,7 @@
         padding: 5px 0 30px;
         border-bottom: 1px solid $theme-color3;
         min-height: 59px;
+        text-align: left;
     }
 
     &__items {
@@ -279,12 +281,14 @@
 
         li {
             margin: 0 0 10px;
+            text-align: left;
 
             a {
                 @extend .paragraph;
                 margin: 0;
                 font-size: 15px;
                 color: $white;
+                text-align: left;
             }
         }
 
