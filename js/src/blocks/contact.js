@@ -25,6 +25,215 @@ function initContactScrollLink() {
     });
 }
 
+function normalizePathnameString(pathnameString) {
+    if (!pathnameString) {
+        return "";
+    }
+
+    let normalizedString = String(pathnameString);
+
+    if (normalizedString.length > 1 && normalizedString.endsWith("/")) {
+        normalizedString = normalizedString.slice(0, -1);
+    }
+
+    return normalizedString;
+}
+
+function normalizeLocationIdString(rawLocationIdString) {
+    if (!rawLocationIdString) {
+        return "";
+    }
+
+    let normalizedString = String(rawLocationIdString);
+
+    try {
+        normalizedString = decodeURIComponent(normalizedString);
+    } catch (errorObject) {}
+
+    normalizedString = normalizedString.trim().toLowerCase();
+
+    normalizedString = normalizedString.replace(/\s+/g, "-");
+    normalizedString = normalizedString.replace(/[^a-z0-9-]/g, "-");
+    normalizedString = normalizedString.replace(/-+/g, "-");
+    normalizedString = normalizedString.replace(/^-+/, "");
+    normalizedString = normalizedString.replace(/-+$/, "");
+
+    return normalizedString;
+}
+
+function getRequestedLocationIdFromUrl() {
+    const rawHashString = window.location.hash || "";
+
+    if (!rawHashString || rawHashString.length < 2) {
+        return "";
+    }
+
+    const rawLocationIdString = rawHashString.replace(/^#/, "");
+    const normalizedLocationIdString = normalizeLocationIdString(rawLocationIdString);
+
+    if (!normalizedLocationIdString) {
+        return "";
+    }
+
+    const matchingLocationButtonElement = $(
+        '.contact__location-button[data-location-id="' + normalizedLocationIdString + '"]'
+    ).first();
+
+    if (!matchingLocationButtonElement.length) {
+        return "";
+    }
+
+    return normalizedLocationIdString;
+}
+
+function scrollToContactMap() {
+    const mapElement = $("#map");
+
+    if (!mapElement.length) {
+        return;
+    }
+
+    $("html, body").stop(true).animate(
+        {
+            scrollTop: mapElement.offset().top,
+        },
+        500
+    );
+}
+
+function setUrlHashWithoutJump(locationIdString) {
+    if (!locationIdString) {
+        return;
+    }
+
+    const newHashString = "#" + locationIdString;
+
+    if (window.history && typeof window.history.replaceState === "function") {
+        window.history.replaceState(null, "", newHashString);
+        return;
+    }
+
+    window.location.hash = newHashString;
+}
+
+function activateContactLocationById(locationIdString, optionsObject) {
+    if (!locationIdString) {
+        return false;
+    }
+
+    const normalizedLocationIdString = normalizeLocationIdString(locationIdString);
+
+    if (!normalizedLocationIdString) {
+        return false;
+    }
+
+    const targetPanelElement = $(
+        '.contact-location-panel[data-location-id="' + normalizedLocationIdString + '"]'
+    ).first();
+
+    if (!targetPanelElement.length) {
+        return false;
+    }
+
+    const targetCountryKeyString = targetPanelElement.data("country") || "";
+
+    if (targetCountryKeyString) {
+        const targetCountryButtonElement = $(
+            '.contact__country-button[data-country="' + targetCountryKeyString + '"]'
+        ).first();
+
+        if (targetCountryButtonElement.length) {
+            const isAlreadyActiveBoolean = targetCountryButtonElement.hasClass("is-active");
+
+            if (!isAlreadyActiveBoolean) {
+                targetCountryButtonElement.trigger("click");
+            }
+        }
+    }
+
+    const targetLocationButtonElement = $(
+        '.contact__location-button[data-location-id="' + normalizedLocationIdString + '"]'
+    ).first();
+
+    if (!targetLocationButtonElement.length) {
+        return false;
+    }
+
+    targetLocationButtonElement.trigger("click");
+
+    setUrlHashWithoutJump(normalizedLocationIdString);
+
+    const shouldScrollBoolean = optionsObject && optionsObject.shouldScrollToMapGuarantee === true;
+
+    if (shouldScrollBoolean) {
+        scrollToContactMap();
+    }
+
+    return true;
+}
+
+function initContactFooterLinks() {
+    const footerLocationLinkElements = $(".footer__locations a");
+
+    if (!footerLocationLinkElements.length) {
+        return;
+    }
+
+    footerLocationLinkElements.on("click", function (eventObject) {
+        const clickedLinkElement = $(this);
+        const hrefString = clickedLinkElement.attr("href") || "";
+
+        if (!hrefString) {
+            return;
+        }
+
+        let parsedUrlObject = null;
+
+        try {
+            parsedUrlObject = new URL(hrefString, window.location.origin);
+        } catch (errorObject) {
+            return;
+        }
+
+        const currentPathnameString = normalizePathnameString(window.location.pathname || "");
+        const targetPathnameString = normalizePathnameString(parsedUrlObject.pathname || "");
+
+        const isContactPageNowBoolean = currentPathnameString === "/contact";
+        const isTargetContactPageBoolean = targetPathnameString === "/contact";
+
+        if (!isTargetContactPageBoolean) {
+            return;
+        }
+
+        if (!isContactPageNowBoolean) {
+            return;
+        }
+
+        const rawHashString = parsedUrlObject.hash || "";
+        const requestedLocationIdString = normalizeLocationIdString(
+            rawHashString.replace(/^#/, "")
+        );
+
+        if (!requestedLocationIdString) {
+            return;
+        }
+
+        const matchingButtonElement = $(
+            '.contact__location-button[data-location-id="' + requestedLocationIdString + '"]'
+        ).first();
+
+        if (!matchingButtonElement.length) {
+            return;
+        }
+
+        eventObject.preventDefault();
+
+        activateContactLocationById(requestedLocationIdString, {
+            shouldScrollToMapGuarantee: true,
+        });
+    });
+}
+
 function initContactTabs() {
     const contactElement = $(".contact");
 
@@ -82,6 +291,10 @@ function initContactTabs() {
             }
         });
 
+        if (locationIdString) {
+            setUrlHashWithoutJump(locationIdString);
+        }
+
         if (window.updateContactMapLocation) {
             window.updateContactMapLocation(locationIdString);
         }
@@ -104,10 +317,38 @@ function initContactTabs() {
         }
     });
 
+    window.addEventListener("hashchange", function () {
+        const requestedLocationIdString = getRequestedLocationIdFromUrl();
+
+        if (!requestedLocationIdString) {
+            return;
+        }
+
+        activateContactLocationById(requestedLocationIdString, {
+            shouldScrollToMapGuarantee: false,
+        });
+    });
+
+    const requestedLocationIdString = getRequestedLocationIdFromUrl();
+
+    if (requestedLocationIdString) {
+        activateContactLocationById(requestedLocationIdString, {
+            shouldScrollToMapGuarantee: false,
+        });
+        return;
+    }
+
     const defaultLocationButtonElement = $(".contact__location-button.is-active").first();
 
     if (defaultLocationButtonElement.length) {
         defaultLocationButtonElement.trigger("click");
+        return;
+    }
+
+    const firstAvailableCountryButtonElement = $(".contact__country-button").first();
+
+    if (firstAvailableCountryButtonElement.length) {
+        firstAvailableCountryButtonElement.trigger("click");
     }
 }
 
@@ -510,12 +751,14 @@ function initContactMapIfAvailable() {
 
     ensureContactMapLocationsCache();
 
-    const defaultLocationButtonElement = $(".contact__location-button.is-active").first();
+    let defaultLocationIdString = getRequestedLocationIdFromUrl();
 
-    let defaultLocationIdString = null;
+    if (!defaultLocationIdString) {
+        const defaultLocationButtonElement = $(".contact__location-button.is-active").first();
 
-    if (defaultLocationButtonElement.length) {
-        defaultLocationIdString = defaultLocationButtonElement.data("locationId");
+        if (defaultLocationButtonElement.length) {
+            defaultLocationIdString = defaultLocationButtonElement.data("locationId");
+        }
     }
 
     if (!isGoogleMapsAvailable()) {
@@ -563,4 +806,5 @@ $(function () {
     initContactScrollLink();
     initContactMapIfAvailable();
     initContactTabs();
+    initContactFooterLinks();
 });
