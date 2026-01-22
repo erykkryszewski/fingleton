@@ -51,6 +51,8 @@ $args = array(
 
 $similar_posts_query = new WP_Query($args);
 
+$footer_logos = get_field('footer_logos', 'options');
+
 ?>
 
 <main class="main main--subpage">
@@ -62,15 +64,15 @@ $similar_posts_query = new WP_Query($args);
                     <div class="subpage-hero__content">
                         <h1 class="subpage-hero__title"><?php echo apply_filters('the_title', get_the_title()); ?></h1>
                         <p><?php
-                      $terms = get_the_terms(get_the_ID(), 'place');
-                      if ($terms && !is_wp_error($terms)) {
-                        $links = array();
-                        foreach ($terms as $term) {
-                          $links[] = '<a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a>';
-                        }
-                        echo '<strong>Areas of work:</strong> ' . implode(', ', $links);
-                      }
-                    ?></p>
+                              $terms = get_the_terms(get_the_ID(), 'place');
+                              if ($terms && !is_wp_error($terms)) {
+                                $links = array();
+                                foreach ($terms as $term) {
+                                  $links[] = '<a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a>';
+                                }
+                                echo '<strong>Areas of work:</strong> ' . implode(', ', $links);
+                              }
+                            ?></p>
                     </div>
                 </div>
             </div>
@@ -110,6 +112,14 @@ $similar_posts_query = new WP_Query($args);
                                         <div class="cpt-project__gallery">
                                             <?php foreach($project_gallery as $key => $item): ?>
                                                 <div class="cpt-project__image cpt-project__image--small"><?php echo wp_get_attachment_image($item['image'], 'large', '', ['class' => 'object-fit-cover']); ?></div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if(!empty($footer_logos)): ?>
+                                        <div class="bottom-bar__images">
+                                            <?php foreach($footer_logos as $key => $item): ?>
+                                                <div class="bottom-bar__logo"><?php echo wp_get_attachment_image($item['logo'], 'large', '', ['class' => '']); ?></div>
+                                                <div class="bottom-bar__logo bottom-bar__logo--color"><?php echo wp_get_attachment_image($item['logo_color'], 'large', '', ['class' => '']); ?></div>
                                             <?php endforeach; ?>
                                         </div>
                                     <?php endif; ?>

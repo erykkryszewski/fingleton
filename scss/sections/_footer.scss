@@ -15,7 +15,7 @@
         position: relative;
 
         @media (max-width: 1249px) {
-            text-align: center;
+            text-align: left;
         }
     }
 
@@ -66,12 +66,13 @@
         align-items: center;
         gap: 25px;
         flex: 1 1 0;
+        width: 100%;
 
         @media (max-width: 767px) {
             flex-wrap: wrap;
-            flex-direction: column;
-            gap: 0;
+            gap: 10px;
             flex: initial;
+            padding: 0 10px;
         }
 
         li {
@@ -81,9 +82,9 @@
             font-size: 15px;
 
             @media (max-width: 767px) {
-                width: 100%;
-                padding: 25px 0;
-                text-align: center;
+                width: calc(50% - 5px);
+                padding: 10px 0;
+                text-align: left;
             }
 
             &::after {
@@ -102,6 +103,7 @@
                     bottom: 0;
                     left: 0;
                     right: 0;
+                    display: none;
                 }
             }
 
@@ -135,6 +137,12 @@
     }
 
     &__social-media {
+        @media(max-width: 767px) {
+            position: absolute;
+            top: -40px;
+            right: 15px;
+        }
+
         li {
             a {
                 img {

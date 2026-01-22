@@ -88,18 +88,6 @@ $page_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
         <div class="bottom-bar">
             <div class="container">
                 <div class="bottom-bar__wrapper">
-                    <?php if(!empty($footer_logos)): ?>
-                        <div class="bottom-bar__images">
-                            <?php foreach($footer_logos as $key => $item): ?>
-                                <div class="bottom-bar__logo">
-                                    <?php echo wp_get_attachment_image($item['logo'], 'large', '', ['class' => '']); ?>
-                                </div>
-                                <div class="bottom-bar__logo bottom-bar__logo--color">
-                                    <?php echo wp_get_attachment_image($item['logo_color'], 'large', '', ['class' => '']); ?>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
                     <div class="bottom-bar__content">
                         <p><?php _e('Copyright', 'fingleton'); ?> © <?php echo date("Y"); ?> Fingleton White, CRO - 86002</p>
                         <a href="<?php echo $global_terms_and_conditions; ?>"><?php _e('Terms and Conditions', 'fingleton'); ?></a>
